@@ -7,121 +7,134 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --blue1:#3b82f6;
-  --blue2:#60a5fa;
-  --ink:#0a1e3f;
-  --text:#1f2937;
+  --blue1:#2563eb;   /* primary */
+  --blue2:#60a5fa;   /* accent */
+  --ink:#0a142f;     /* heading */
+  --text:#1f2937;    /* body */
+  --muted:#334155;   /* secondary */
 }
 
-/* GLOBAL */
+/* ===== GLOBAL ===== */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;
-  font-family:"Open Sans",sans-serif;
-  color:var(--text);
-  background:#fff !important;
+  margin:0; background:#fff; color:var(--text);
+  font-family:"Open Sans",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
   line-height:1.75;
 }
+a{color:inherit}
 
-/* HERO (full GIF background) */
+/* ===== HERO (FULL SCREEN GIF) ===== */
 header#hero{
-  position:relative;
-  height:100vh;
+  position:relative; height:100vh;
   display:flex; align-items:center; justify-content:center;
   text-align:center; overflow:hidden;
 }
 #hero::before{
   content:""; position:absolute; inset:0;
   background:url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGlmZTh4MDQ4aHFwcGVmbHY4dXplaGY2NmNlcmtlMHBkZDVyc3c0OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lbcLMX9B6sTsGjUmS3/giphy.gif")
-            center/cover no-repeat;
+           center/cover no-repeat;
   z-index:-2;
 }
 #hero::after{
+  /* darker navy overlay at top → fades to white for readability */
   content:""; position:absolute; inset:0;
-  background:linear-gradient(180deg,rgba(255,255,255,.7) 0%,rgba(255,255,255,.85) 55%,#fff 100%);
+  background:
+    linear-gradient(180deg, rgba(5,11,35,.65) 0%, rgba(5,11,35,.45) 35%, rgba(255,255,255,.85) 68%, #ffffff 100%);
   z-index:-1;
 }
-.hero-inner{max-width:960px; padding:0 20px}
+.hero-inner{max-width:1100px; padding:0 24px}
 .hero-pic{
-  width:180px; height:180px; border-radius:50%;
-  border:5px solid #fff; object-fit:cover; margin-bottom:18px;
+  width:190px;height:190px;border-radius:50%;
+  border:5px solid #fff; object-fit:cover; margin-bottom:20px
 }
 .hero-name{
   font-family:"Playfair Display",serif;
-  font-size:72px; line-height:1.05; margin:6px 0 8px; color:var(--ink);
+  font-size:76px; line-height:1.03; margin:8px 0 10px; color:#ffffff;
+  text-shadow:0 6px 24px rgba(0,0,0,.45);
 }
-.hero-role{font-size:30px; font-weight:600; margin:0 0 16px; color:var(--blue1)}
-.hero-intro{max-width:780px; margin:0 auto 22px; font-size:18px}
+.hero-role{
+  font-size:34px; font-weight:700; margin:0 0 18px; color:#eaf2ff;
+  text-shadow:0 4px 18px rgba(0,0,0,.35);
+}
+.hero-intro{
+  max-width:840px; margin:0 auto 26px; font-size:19px; color:#0e1a35;
+  background:rgba(255,255,255,.78); padding:10px 14px; border-radius:10px;
+}
 .btn{
-  display:inline-block; margin:6px 8px; padding:12px 22px;
-  border-radius:8px; font-weight:700; color:#fff; text-decoration:none;
+  display:inline-block; margin:6px 10px; padding:14px 26px;
+  border-radius:12px; font-weight:800; color:#fff; text-decoration:none; letter-spacing:.2px;
   background:linear-gradient(90deg,var(--blue1),var(--blue2));
   transition:transform .25s ease, filter .25s ease;
 }
-.btn:hover{transform:translateY(-2px); filter:saturate(1.06)}
+.btn:hover{transform:translateY(-2px); filter:saturate(1.08)}
 
-/* SECTIONS */
-.section{max-width:980px; margin:90px auto; padding:0 20px}
+/* ===== SECTIONS (WIDE, GAMMA-LIKE) ===== */
+.section{max-width:1180px; margin:96px auto; padding:0 24px}
 .section h2{
   font-family:"Playfair Display",serif;
-  font-size:32px; margin:0 0 14px; color:var(--blue1);
-  border-bottom:2px solid var(--blue2); padding-bottom:6px;
+  font-size:34px; margin:0 0 16px; color:var(--blue1);
+  border-bottom:2px solid var(--blue2); padding-bottom:8px; text-align:left;
 }
-.section p, .section li{font-size:18px}
+.section p, .section li{font-size:19px}
 ul{padding-left:22px}
-.section img.figure{width:100%; border-radius:10px; margin-top:10px}
 
-/* GIF BANDS */
+/* Two-column layout */
+.grid-2{display:grid; grid-template-columns:1.2fr 1fr; gap:32px; align-items:start}
+.grid-2.reverse{grid-template-columns:1fr 1.2fr}
+@media (max-width:960px){.grid-2,.grid-2.reverse{grid-template-columns:1fr}}
+
+/* GIF bands between sections */
 .band{
-  position:relative; height:230px;
+  position:relative; height:240px;
   background-size:cover; background-position:center;
 }
 .band::after{
-  content:""; position:absolute; left:0; right:0; bottom:-1px; height:150px;
-  background:linear-gradient(180deg, rgba(255,255,255,0) 0%, #fff 95%);
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:160px;
+  background:linear-gradient(180deg, rgba(255,255,255,0) 0%, #fff 96%);
 }
 
-/* LOGOS */
+/* Logos (centered, subtle hover) */
 .logo-img{
-  display:block; margin:14px auto 20px;
-  max-width:220px; width:100%; height:auto;
+  display:block; margin:14px auto 16px;
+  max-width:240px; width:100%; height:auto;
   transition:transform .3s ease;
 }
 .logo-img:hover{transform:scale(1.05)}
+.wie-logo{max-width:220px}
 
-/* Skills chips */
+/* Skill chips */
 .chips{display:flex; flex-wrap:wrap; gap:10px}
 .chip{
   background:linear-gradient(90deg,var(--blue1),var(--blue2));
-  color:#fff; padding:8px 14px; border-radius:999px;
-  font-weight:700; font-size:13px;
+  color:#fff; padding:9px 16px; border-radius:999px; font-weight:800; font-size:14px
 }
 
-/* Contact row */
+/* Contact row (on one line, wraps on mobile) */
 .contact-row{
   display:flex; justify-content:center; align-items:center;
-  gap:14px; flex-wrap:wrap; margin-top:12px;
+  gap:14px; flex-wrap:wrap; margin-top:14px
 }
-.contact-row .btn{border-radius:999px; padding:10px 18px}
+.contact-row .btn{border-radius:999px; padding:12px 22px}
 
 /* Footer */
 footer{
-  text-align:center; padding:26px;
+  text-align:center; padding:28px 16px;
   background:linear-gradient(90deg,var(--blue1),var(--blue2));
-  color:#fff; margin-top:80px;
+  color:#fff; margin-top:90px; font-size:15px
 }
 
-/* Mobile */
-@media (max-width:680px){
-  .hero-name{font-size:48px}
-  .hero-role{font-size:22px}
-}
+/* Reveal on scroll (subtle) */
+.reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease}
+.reveal.show{opacity:1; transform:translateY(0)}
+
+/* Images in columns */
+.figure{width:100%; border-radius:14px}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
+<!-- ===== HERO ===== -->
 <header id="hero">
   <div class="hero-inner">
     <img class="hero-pic" src="PROFPFP.jpg" alt="Amna Boughamoura">
@@ -129,80 +142,102 @@ footer{
     <p class="hero-role">ICT Student · IoT &amp; AI Developer</p>
     <p class="hero-intro">
       ICT student specializing in IoT Networks at ISIMM. I build intelligent systems that merge connected sensors,
-      embedded platforms, and AI/computer vision. Ranked 1st at ISIMM and 8th nationally in IEEEXtreme 17.
-      IEEE Smart Sustainability Startup Challenge winner; WIE Vice Chair empowering women in tech.
+      embedded platforms, and AI/computer vision. Ranked 1st at ISIMM and 8th in Tunisia (IEEEXtreme 17).
+      IEEE Smart Sustainability Startup winner; WIE Vice Chair empowering women in tech.
     </p>
     <div>
-      <a class="btn" href="Amna_Boughamoura_CV.pdf" target="_blank">My CV</a>
-      <a class="btn" href="https://github.com/amna-boughamoura" target="_blank">GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank">LinkedIn</a>
+      <a class="btn" href="Amna_Boughamoura_CV.pdf" download>⬇ My CV (PDF)</a>
+      <a class="btn" href="https://github.com/amna-boughamoura" target="_blank" rel="noopener">💻 GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank" rel="noopener">🔗 LinkedIn</a>
     </div>
   </div>
 </header>
 
-<!-- ACADEMIC -->
-<section class="section">
+<!-- ===== ACADEMIC (two-column) ===== -->
+<section class="section reveal" id="education">
   <h2>Academic Foundation</h2>
-  <p><strong>Higher Institute of Informatics &amp; Mathematics of Monastir (ISIMM)</strong> — License in ICT (IoT Networks), 2022–Present.</p>
-  <p>Coursework emphasizes IoT networks, embedded systems, AI on the edge, computer vision, and distributed sensor software design. Built multiple cross-discipline projects integrating microcontrollers and ML models.</p>
-  <p><strong>Fatouma Bourguiba High School</strong> — Baccalaureate in Experimental Sciences (Honors), 2022.</p>
+  <div class="grid-2">
+    <div>
+      <p><strong>Higher Institute of Informatics &amp; Mathematics of Monastir (ISIMM)</strong> — License in ICT (IoT Networks), 2022–Present.</p>
+      <p>Focus on IoT networks, embedded systems, AI on the edge, computer vision, and distributed sensor software design. Built cross-disciplinary projects integrating microcontrollers and ML models.</p>
+      <p><strong>Fatouma Bourguiba High School</strong> — Baccalaureate in Experimental Sciences (Honors), 2022.</p>
+    </div>
+    <div>
+      <img class="figure" src="IEEE ISIMM.jpg" alt="IEEE ISIMM Student Community">
+    </div>
+  </div>
 </section>
 
-<!-- DWA BAND -->
+<!-- ===== DWA BAND (GIF) ===== -->
 <div class="band" style="background-image:url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2NodGZucGt5eWRyZnlibjZ0aHZ4Nmx3aXVwdmt3enJ2dmk5dG5mbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sRFEa8lbeC7zbcIZZR/giphy.gif');"></div>
 
-<!-- DWA -->
-<section class="section">
-  <h2>Daily Wellness Assistant</h2>
-  <p>AI-powered assistant that detects facial emotions in real time using <strong>DeepFace</strong> + <strong>OpenCV</strong>, delivering privacy-first local inference and personalized feedback for wellbeing.</p>
-  <ul>
-    <li>Trained CNN/FER models (TensorFlow) and reached strong accuracy on validation data.</li>
-    <li>Edge execution (local webcam) to protect user data; no cloud uploads.</li>
-    <li>Responsive interface for session summaries and daily mood tracking.</li>
-    <li>Stack: Python, TensorFlow, DeepFace, OpenCV, Flask, HTML/CSS.</li>
-  </ul>
-  <p><a class="btn" href="https://github.com/amna-boughamoura/daily-wellness-assistant" target="_blank">View on GitHub</a></p>
+<!-- ===== DWA (two-column) ===== -->
+<section class="section reveal" id="dwa">
+  <h2>Daily Wellness Assistant (PFA Project)</h2>
+  <div class="grid-2 reverse">
+    <div>
+      <p>AI assistant that detects facial emotions in real time using <strong>DeepFace</strong> + <strong>OpenCV</strong>, delivering privacy-first local inference and personalized feedback for wellbeing.</p>
+      <ul>
+        <li>CNN/FER models (TensorFlow) with strong validation accuracy; 7 classes (Happy, Sad, Angry, Neutral, Fear, Disgust, Surprise).</li>
+        <li>Edge execution (local webcam) to protect user data; no cloud uploads.</li>
+        <li>Interactive dashboard for session summaries and daily mood trends.</li>
+        <li>Stack: Python, TensorFlow, DeepFace, OpenCV, Flask, HTML/CSS.</li>
+      </ul>
+      <p><a class="btn" href="https://github.com/amna-boughamoura/daily-wellness-assistant" target="_blank" rel="noopener">View on GitHub</a></p>
+    </div>
+    <div>
+      <img class="figure" src="PROFPFP.jpg" alt="Demo preview (placeholder)">
+    </div>
+  </div>
 </section>
 
-<!-- HOME AUTOMATION BAND -->
+<!-- ===== HOME AUTOMATION BAND (GIF) ===== -->
 <div class="band" style="background-image:url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmRhOGN2cnZmcnZmdWg3YWhmaTcyZTlpeG40bWdod3lnczEwaXV2OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oFzmrqRPhYnFg9oGs/giphy.gif');"></div>
 
-<!-- HOME AUTOMATION -->
-<section class="section">
+<!-- ===== HOME AUTOMATION (two-column) ===== -->
+<section class="section reveal" id="home-auto">
   <h2>Intelligent Home Automation System</h2>
-  <p>Smart IoT ecosystem using <strong>Arduino</strong>, <strong>ESP32</strong>, and a network of sensors to automate lighting, irrigation, and indoor climate through rules and dashboards.</p>
-  <ul>
-    <li>Integrated temperature, humidity, light, and soil moisture sensors with actuators.</li>
-    <li>Energy-aware schedules and safety fallbacks; manual override via local UI.</li>
-    <li>Connectivity simulated with MQTT/REST; modular code ready for voice control.</li>
-  </ul>
-  <p><a class="btn" href="https://github.com/amna-boughamoura/intelligent-home-automation" target="_blank">View on GitHub</a></p>
+  <div class="grid-2">
+    <div>
+      <p>Smart IoT ecosystem using <strong>Arduino</strong>, <strong>ESP32</strong>, and a network of sensors to automate lighting, irrigation, and indoor climate through rules and dashboards.</p>
+      <ul>
+        <li>Integrated temperature, humidity, light, and soil moisture sensors with actuators.</li>
+        <li>Energy-aware schedules and safety fallbacks; manual override via local UI.</li>
+        <li>Connectivity simulated with MQTT/REST; modular code ready for voice control.</li>
+      </ul>
+      <p><a class="btn" href="https://github.com/amna-boughamoura/intelligent-home-automation" target="_blank" rel="noopener">View on GitHub</a></p>
+    </div>
+    <div>
+      <img class="figure" src="https://images.unsplash.com/photo-1581093458791-9d09f50fd68d?q=80&w=1200&auto=format&fit=crop" alt="Home automation preview">
+    </div>
+  </div>
 </section>
 
-<!-- TECH PATHWAYS -->
+<!-- ===== TECH PATHWAYS BAND ===== -->
 <div class="band" style="background:#fff url('mena tech.png') center/contain no-repeat;"></div>
 
-<section class="section">
+<!-- ===== PROGRAMS ===== -->
+<section class="section reveal" id="programs">
   <h2>Tech Pathways MENA Program</h2>
-  <p>Selected participant in a regional mentorship and innovation program empowering young women in STEM across the MENA region. Worked on sustainability and digital transformation challenges with international mentors and peers.</p>
+  <p>Selected participant in a regional mentorship and innovation program empowering young women in STEM across MENA. Worked on sustainability and digital transformation challenges with international mentors and peers.</p>
 </section>
 
-<!-- SAHNI -->
-<section class="section">
+<!-- ===== SAHNI ===== -->
+<section class="section reveal" id="sahni">
   <h2>Sahni — Smart Sustainability Startup</h2>
-  <img src="sahni fruits.jpg" alt="Sahni Logo" class="logo-img" />
+  <img class="logo-img" src="sahni fruits.jpg" alt="Sahni Logo">
   <p>Winner of the <strong>IEEE Smart Sustainability Startup</strong> challenge. Co-founded <em>Sahni</em>, an IoT solution for sustainable agriculture and smart irrigation.</p>
   <ul>
-    <li>Designed soil moisture monitoring with automated watering to reduce waste.</li>
+    <li>Soil moisture monitoring with automated watering to reduce waste.</li>
     <li>Presented to IEEE Tunisia Section; awarded top innovation recognition.</li>
-    <li>Led product design and sensor integration, demonstrating measurable efficiency gains.</li>
+    <li>Led product design and sensor integration; demonstrated tangible efficiency gains.</li>
   </ul>
 </section>
 
-<!-- IEEE ISIMM -->
-<section class="section">
+<!-- ===== IEEE ISIMM SB ===== -->
+<section class="section reveal" id="ieee-sb">
   <h2>IEEE ISIMM Student Branch</h2>
-  <img src="IEEE ISIMM.jpg" alt="IEEE ISIMM Logo" class="logo-img" />
+  <img class="logo-img" src="IEEE ISIMM.jpg" alt="IEEE ISIMM Logo">
   <p>Active organizer and collaborator in the IEEE ISIMM Student Branch, combining innovation, leadership, and technical development for ICT students.</p>
   <ul>
     <li>Organized coding/AI workshops (100+ participants) and community events.</li>
@@ -211,10 +246,10 @@ footer{
   </ul>
 </section>
 
-<!-- WIE -->
-<section class="section" id="wie">
+<!-- ===== WIE ===== -->
+<section class="section reveal" id="wie">
   <h2>IEEE Women in Engineering (WIE)</h2>
-  <img src="wie123.jpg" alt="IEEE WIE Logo" class="logo-img" />
+  <img class="logo-img wie-logo" src="wie123.jpg" alt="IEEE WIE Logo">
   <p><strong>Vice Chair (2023)</strong> — Led initiatives to promote women’s empowerment in tech, health awareness, and youth innovation.</p>
   <ul>
     <li><strong>WIE Heal 2.0:</strong> Breast-cancer awareness campaign with healthcare professionals (50+ attendees).</li>
@@ -223,8 +258,8 @@ footer{
   </ul>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section class="section">
+<!-- ===== CERTIFICATIONS ===== -->
+<section class="section reveal" id="certs">
   <h2>Certifications</h2>
   <ul>
     <li><strong>AI for Everyone</strong> — DeepLearning.AI (Coursera)</li>
@@ -234,9 +269,9 @@ footer{
   </ul>
 </section>
 
-<!-- SKILLS & LANGUAGES -->
-<section class="section">
-  <h2>Skills &amp; Languages</h2>
+<!-- ===== SKILLS & LANGUAGES ===== -->
+<section class="section reveal" id="skills">
+  <h2>Technical Expertise &amp; Languages</h2>
   <div class="chips" style="margin-bottom:12px">
     <span class="chip">Python</span><span class="chip">C</span><span class="chip">Arduino</span><span class="chip">ESP32</span>
     <span class="chip">Raspberry&nbsp;Pi</span><span class="chip">OpenCV</span><span class="chip">DeepFace</span>
@@ -245,17 +280,24 @@ footer{
   <p><strong>Languages:</strong> Arabic (Native) · English (Fluent) · French (Advanced) · Korean (Intermediate) · Japanese (Beginner) · Italian (Beginner) · Chinese (Beginner)</p>
 </section>
 
-<!-- CONTACT -->
-<section class="section">
+<!-- ===== CONTACT ===== -->
+<section class="section reveal" id="contact">
   <h2>Contact</h2>
   <div class="contact-row">
     <a class="btn" href="mailto:amna.boughamoura@gmail.com">📧 Email</a>
-    <a class="btn" href="https://github.com/amna-boughamoura" target="_blank">💻 GitHub</a>
-    <a class="btn" href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank">🔗 LinkedIn</a>
+    <a class="btn" href="https://github.com/amna-boughamoura" target="_blank" rel="noopener">💻 GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank" rel="noopener">🔗 LinkedIn</a>
   </div>
 </section>
 
 <footer>© 2025 Amna Boughamoura — All rights reserved</footer>
 
+<script>
+/* Subtle reveal on scroll */
+const io=new IntersectionObserver((entries,obs)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target);} });
+},{threshold:.12, rootMargin:"0px 0px -10% 0px"});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
