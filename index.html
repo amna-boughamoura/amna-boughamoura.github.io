@@ -5,155 +5,145 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Amna Boughamoura | IoT & AI Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
 <style>
-/* ===== ROOT COLORS ===== */
-:root {
-  --accent: #b48cf2;
-  --text-dark: #0a0a0a;
-  --text-mid: #333;
+:root{
+  --blue1:#3b82f6;
+  --blue2:#60a5fa;
+  --text-dark:#0b0f1a;
+  --text-mid:#344155;
 }
 
-/* ===== GLOBAL RESET ===== */
-html,body{
+/* GLOBAL */
+html{scroll-behavior:smooth}
+body{
   margin:0;
-  padding:0;
-  background:white !important;
-  color:var(--text-dark);
   font-family:"Open Sans",sans-serif;
-  scroll-behavior:smooth;
+  color:var(--text-dark);
+  background:white;
   line-height:1.7;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 header{
   position:relative;
   text-align:center;
+  color:#fff;
   padding:180px 20px 160px;
   overflow:hidden;
-  color:#111;
-  background:white;
 }
 header::before{
   content:"";
-  position:absolute;
-  inset:0;
+  position:absolute;inset:0;
   background:url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGlmZTh4MDQ4aHFwcGVmbHY4dXplaGY2NmNlcmtlMHBkZDVyc3c0OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lbcLMX9B6sTsGjUmS3/giphy.gif')
-    center/cover no-repeat;
-  filter:brightness(0.8);
+  center/cover no-repeat;
   z-index:-2;
 }
 header::after{
   content:"";
   position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(255,255,255,0.1) 70%,white 100%);
+  background:rgba(255,255,255,0.65);
+  backdrop-filter:blur(1px);
   z-index:-1;
 }
 
-/* ===== HERO CONTENT ===== */
 .hero{
-  position:relative;
-  z-index:2;
-  max-width:950px;
-  margin:0 auto;
+  position:relative;z-index:1;max-width:950px;margin:0 auto;
 }
 .hero img{
-  width:190px;
-  height:190px;
-  border-radius:50%;
-  object-fit:cover;
-  border:5px solid white;
-  margin-bottom:30px;
+  width:190px;height:190px;border-radius:50%;object-fit:cover;
+  border:5px solid white;margin-bottom:30px;
 }
 .hero h1{
   font-family:"Playfair Display",serif;
-  font-size:70px;
-  margin:0 0 10px;
-  color:#14183f;
+  font-size:70px;margin:0 0 12px;color:var(--text-dark);
 }
 .hero h2{
-  font-size:32px;
-  font-weight:600;
-  margin:0 0 20px;
-  color:#3a3f75;
+  font-size:32px;font-weight:600;margin:0 0 20px;color:#1e3a8a;
 }
 .hero p{
-  font-size:19px;
-  color:#1a1a1a;
-  max-width:780px;
-  margin:0 auto 30px;
+  font-size:18px;color:var(--text-mid);max-width:780px;margin:0 auto 32px;
 }
-.hero .buttons a{
+.buttons a{
   display:inline-block;
-  background:#3a3f75;
-  color:white;
+  background:linear-gradient(90deg,var(--blue1),var(--blue2));
+  color:#fff;
   text-decoration:none;
   font-weight:600;
   padding:12px 26px;
   border-radius:6px;
   margin:0 8px;
-  transition:all .3s;
+  transition:transform .25s,box-shadow .25s;
 }
-.hero .buttons a:hover{
-  background:var(--accent);
+.buttons a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 4px 12px rgba(59,130,246,.4);
 }
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
 section{
   max-width:950px;
   margin:80px auto;
-  padding:10px 20px;
-  background:white !important;
+  padding:20px;
 }
 h2{
   font-family:"Playfair Display",serif;
   font-size:30px;
-  color:var(--accent);
-  border-bottom:2px solid var(--accent);
-  padding-bottom:8px;
-  margin-bottom:16px;
+  color:var(--blue1);
+  border-bottom:2px solid var(--blue2);
+  padding-bottom:6px;
+  margin-bottom:18px;
   text-align:left;
 }
-p,li{
-  font-size:18px;
-  color:var(--text-mid);
-}
+p,li{font-size:17px;color:var(--text-mid)}
 ul{padding-left:22px}
 
-/* ===== SKILLS ===== */
+/* Full-width GIF “bands” */
+.band{
+  position:relative;height:200px;background-size:cover;background-position:center;
+}
+.band::after{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:140px;
+  background:linear-gradient(180deg,rgba(255,255,255,0) 0%,#fff 90%);
+}
+
+/* Skills & Contact */
 .skills span,.contact a{
   display:inline-block;
-  background:var(--accent);
+  background:linear-gradient(90deg,var(--blue1),var(--blue2));
   color:white;
   padding:8px 16px;
   margin:6px 4px;
   border-radius:20px;
-  text-decoration:none;
   font-size:15px;
+  text-decoration:none;
 }
 
-/* ===== FOOTER ===== */
+/* Footer */
 footer{
   text-align:center;
   padding:25px;
-  background:var(--accent);
+  background:linear-gradient(90deg,var(--blue1),var(--blue2));
   color:white;
   font-size:15px;
   margin-top:70px;
 }
 
-/* ===== ANIMATIONS ===== */
+/* Fade reveal */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
 .reveal.show{opacity:1;transform:translateY(0)}
 </style>
 </head>
+
 <body>
 
+<!-- HERO -->
 <header>
   <div class="hero">
     <img src="PROFPFP.jpg" alt="Amna Boughamoura">
     <h1>Amna Boughamoura</h1>
     <h2>ICT Student · IoT &amp; AI Developer</h2>
-    <p>License in Information and Communication Technology (IoT Networks) from the Higher Institute of Informatics and Mathematics of Monastir. Ranked 1st at university and 8th nationally in IEEEXtreme 17th Edition. IEEE Pitching Competition winner with expertise in emotion recognition, IoT systems, and AI-driven solutions.</p>
+    <p>ICT student specialized in IoT Networks at ISIMM, passionate about designing intelligent systems that connect sensors, data, and AI to improve comfort, productivity, and sustainability. IEEE competition winner and Women in Engineering leader.</p>
     <div class="buttons">
       <a href="Amna_Boughamoura_CV.pdf" target="_blank">My CV</a>
       <a href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank">LinkedIn</a>
@@ -161,54 +151,25 @@ footer{
   </div>
 </header>
 
+<!-- EDUCATION -->
 <section class="reveal">
   <h2>Academic Foundation</h2>
-  <p><strong>Higher Institute of Informatics and Mathematics of Monastir (ISIMM)</strong> — License in ICT (IoT Networks), 2022–Present.</p>
-  <p>Focus on IoT protocols, embedded systems, computer vision, and software design.</p>
+  <p><strong>Higher Institute of Informatics & Mathematics (ISIMM)</strong> — License in ICT (IoT Networks), 2022–Present, Monastir.</p>
+  <p>Specialization in IoT protocols, embedded systems, computer vision, and applied AI. Extensive project work on sensor integration and smart automation.</p>
+  <p><strong>Fatouma Bourguiba High School</strong> — Baccalaureate in Experimental Sciences (Honors), 2022.</p>
 </section>
 
+<!-- BAND: DWA -->
+<div class="band" style="background-image:url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2NodGZucGt5eWRyZnlibjZ0aHZ4Nmx3aXVwdmt3enJ2dmk5dG5mbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sRFEa8lbeC7zbcIZZR/giphy.gif')"></div>
+
 <section class="reveal">
-  <h2>Projects</h2>
+  <h2>Daily Wellness Assistant (PFA Project)</h2>
   <ul>
-    <li><b>Daily Wellness Assistant:</b> Real-time emotion recognition using DeepFace + OpenCV.</li>
-    <li><b>Home Automation System:</b> IoT-based climate, lighting, and irrigation control.</li>
+    <li>Real-time emotion recognition with Deep Learning & OpenCV.</li>
+    <li>Continuous monitoring of 7 emotional states with personalized feedback.</li>
+    <li>Integrates IoT sensors for adaptive environment control.</li>
   </ul>
 </section>
 
-<section class="reveal">
-  <h2>Tech Pathways MENA Program</h2>
-  <img src="mena tech.png" alt="Tech Pathways MENA Banner" style="width:100%;border-radius:12px;margin-top:10px">
-</section>
-
-<section class="reveal">
-  <h2>IEEE Women in Engineering (WIE)</h2>
-  <img src="wie123.jpg" alt="IEEE WIE Logo" style="max-width:250px;width:100%;margin-top:10px;border-radius:10px">
-  <p>Vice Chair (2023). Organized events promoting inclusion and leadership for women in STEM.</p>
-</section>
-
-<section class="reveal">
-  <h2>Skills &amp; Languages</h2>
-  <div class="skills">
-    <span>Python</span><span>C</span><span>Arduino</span><span>ESP32</span>
-    <span>OpenCV</span><span>DeepFace</span><span>HTML/CSS</span><span>UI/UX</span>
-  </div>
-  <p><strong>Languages:</strong> Arabic (Native) · English (Fluent) · French (Advanced)</p>
-</section>
-
-<section class="reveal">
-  <h2>Contact</h2>
-  <p>📧 <a href="mailto:amna.boughamoura@gmail.com">amna.boughamoura@gmail.com</a></p>
-  <p>💻 <a href="https://github.com/amna-boughamoura" target="_blank">GitHub</a> | 🔗 <a href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank">LinkedIn</a></p>
-</section>
-
-<footer>© 2025 Amna Boughamoura — All rights reserved</footer>
-
-<script>
-const obs=new IntersectionObserver((e,o)=>e.forEach(x=>{
-if(x.isIntersecting){x.target.classList.add("show");o.unobserve(x.target)}
-}),{threshold:.1});
-document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
-</script>
-
-</body>
-</html>
+<!-- BAND: HOME AUTOMATION -->
+<div class="band" style="background-image:url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjEx
