@@ -5,99 +5,206 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amna Boughamoura | IoT & AI Developer</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #ffffff;
-            margin: 0;
-            padding: 0;
-            color: #222;
-        }
-        header {
-            text-align: center;
-            padding: 50px 20px;
-            background: #4E9F3D;
-            color: white;
-        }
-        header img {
-            width: 180px;
-            border-radius: 100%;
-            margin-bottom: 15px;
-            border: 4px solid #ffffff;
-        }
-        section {
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-        h2 {
-            color: #4E9F3D;
-            border-bottom: 2px solid #4E9F3D;
-            padding-bottom: 5px;
-        }
-        .skills span, .contact a {
-            display: inline-block;
-            background: #4E9F3D;
-            color: #fff;
-            padding: 8px 14px;
-            margin: 6px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .project-card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 10px;
-        }
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #4E9F3D;
-            color: white;
-            margin-top: 50px;
-        }
-        .hero-container {
+       /* ==== BASE ==== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap');
+
+:root {
+    --green: #4E9F3D;
+    --bg1: linear-gradient(180deg, #eaf2fb 0%, #fffaf4 100%);
+    --bg2: linear-gradient(180deg, #fffaf4 0%, #e8f5e9 100%);
+    --bg3: linear-gradient(180deg, #e8f5e9 0%, #f3e8ff 100%);
+    --bg4: linear-gradient(180deg, #f3e8ff 0%, #eaf2fb 100%);
+    --card-bg: rgba(255,255,255,0.8);
+    --shadow: 0 6px 16px rgba(0,0,0,0.08);
+    --radius: 14px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+    line-height: 1.6;
+    background: #fff;
+}
+
+/* ==== HEADER ==== */
+header {
+    background: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    padding: 80px 40px;
+    color: #fff;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+.hero-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
     flex-wrap: wrap;
 }
-
-header {
-    text-align: left !important;
-    padding: 60px 40px;
-    background: #4E9F3D;
-}
-
 header img {
     width: 220px;
     height: auto;
-    border-radius: 15px;
+    border-radius: 18px;
     border: 5px solid #fff;
+    box-shadow: var(--shadow);
 }
-
 .hero-text {
-    max-width: 450px;
-    color: white;
+    max-width: 460px;
 }
-
 .hero-text h1 {
     margin: 0;
-    font-size: 38px;
-    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+}
+.hero-text .tagline {
+    font-size: 20px;
+    margin-top: 8px;
+}
+.hero-text p {
+    margin-top: 6px;
+    font-size: 15px;
 }
 
-.hero-text .tagline {
-    margin-top: 10px;
-    font-size: 20px;
+/* ==== SECTIONS ==== */
+section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 30px;
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    margin-top: 60px;
+}
+section:nth-of-type(1) { background: var(--bg1); }
+section:nth-of-type(2) { background: var(--bg2); }
+section:nth-of-type(3) { background: var(--bg3); }
+section:nth-of-type(4) { background: var(--bg4); }
+section:nth-of-type(5) { background: var(--bg1); }
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--green);
+    border-bottom: 3px solid var(--green);
+    padding-bottom: 6px;
+    margin-top: 0;
+}
+
+/* ==== SKILLS ==== */
+.skills {
+    margin-top: 20px;
+}
+.skills span {
+    display: inline-block;
+    background: var(--green);
+    color: #fff;
+    padding: 8px 16px;
+    margin: 6px;
+    border-radius: 20px;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+.skills span:hover {
+    transform: scale(1.1);
+}
+
+/* ==== PROJECTS ==== */
+.project-card {
+    background: rgba(255,255,255,0.9);
+    border-radius: var(--radius);
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.project-card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* ==== CONTACT ==== */
+.contact a {
+    display: inline-block;
+    background: var(--green);
+    color: #fff;
+    padding: 10px 18px;
+    margin: 6px;
+    border-radius: 24px;
+    text-decoration: none;
     font-weight: 500;
+    transition: background 0.3s ease;
+}
+.contact a:hover {
+    background: #3c7d2f;
+}
+
+/* ==== FOOTER ==== */
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #4E9F3D;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 60px;
+}
+
+/* ==== ANIMATIONS ==== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+    header {
+        text-align: center;
+        padding: 60px 20px;
+    }
+    .hero-container {
+        flex-direction: column;
+    }
+    .hero-text h1 {
+        font-size: 34px;
+    }
+    section {
+        padding: 40px 20px;
+    }
 }
 
     </style>
 </head>
 <body>
+<script>
+// Fade-in animation on scroll
+const faders = document.querySelectorAll('section, .project-card, .skills span');
+
+const appearOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -20px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, observer){
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("visible");
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+
+faders.forEach(fader => {
+  fader.classList.add("fade-in");
+  appearOnScroll.observe(fader);
+});
+</script>
 
 <header>
     <div class="hero-container">
