@@ -1,320 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amna Boughamoura | IoT & AI Developer</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Amna Boughamoura — IoT & AI Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
+  /* Blue/Violet tech theme */
   --midnight:#0a0f2c;
+  --ink:#0f1539;
   --cyan:#7dd3fc;
   --violet:#c8a6ff;
-  --lavender:#dcd0ff;
+  --violet-deep:#956df7;
   --panel:#ffffff;
-  --text:#eaf2ff;
-  --body-text:#161a2b;
+  --muted:#475569;
+  --ring:0 0 0 6px rgba(124,58,237,.18);
+  --shadow:0 10px 28px rgba(8,13,40,.15);
 }
 
-/* ==== GLOBAL ==== */
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  color: var(--body-text);
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Open Sans",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
+  color:#0f172a;
+  /* animated page background */
   background:
-    radial-gradient(1000px 600px at 20% -10%, rgba(124, 58, 237, .25), transparent 70%),
-    radial-gradient(900px 500px at 110% 10%, rgba(56, 189, 248, .2), transparent 60%),
-    linear-gradient(180deg, #0b122e 0%, #0a1030 100%);
-  animation: bg-pan 20s linear infinite alternate;
+    radial-gradient(1000px 600px at 20% -10%, rgba(124,58,237,.25), transparent 70%),
+    radial-gradient(900px 500px at 110% 10%, rgba(56,189,248,.20), transparent 60%),
+    linear-gradient(180deg,#0b122e 0%,#0a1030 100%);
+  background-attachment:fixed,fixed,fixed;
+  animation:bg-pan 18s linear infinite alternate;
 }
-@keyframes bg-pan {
-  0%{background-position:0 0,0 0,0 0;}
-  100%{background-position:-80px -60px,80px -40px,0 80px;}
-}
-
-/* ==== HEADER ==== */
-header {
-  position: relative;
-  color: #fff;
-  text-align: center;
-  padding: 130px 20px 110px;
-  overflow: hidden;
-}
-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOG5ibjlncHhhMXJteGdkdTgzMGNlZnpjN3d2b2kydzhtOXZteTRyNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QpVUMRUJGokfqXyfa1/giphy.gif') center/cover no-repeat;
-  filter: brightness(0.8);
-  z-index: -2;
-}
-header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 15, 40, 0.5);
-  z-index: -1;
-}
-.hero-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-header img {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #fff;
-  box-shadow: 0 0 25px rgba(124, 58, 237, .5);
-  animation: glow 4s ease-in-out infinite alternate;
-}
-@keyframes glow {
-  from { box-shadow: 0 0 18px rgba(124, 58, 237, .4); }
-  to { box-shadow: 0 0 28px rgba(56, 189, 248, .6); }
-}
-.hero-text h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  margin: 14px 0 0;
-  color: #fff;
-  text-shadow: 0 4px 15px rgba(0,0,0,0.6);
-}
-.hero-text .tagline {
-  font-size: 18px;
-  font-weight: 500;
-  color: #eaf6ff;
-}
-.hero-text p {
-  color: #eaf6ff;
-  font-size: 15px;
+@keyframes bg-pan{
+  0%{background-position:0 0,0 0,0 0}
+  100%{background-position:-80px -60px,80px -40px,0 80px}
 }
 
-/* ==== SECTION ==== */
-section {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 45px 30px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: transform 0.5s ease, opacity 0.5s ease;
+/* ===== HERO ===== */
+header{
+  position:relative;
+  color:#fff;
+  padding:130px 20px 110px;
+  text-align:center;
+  overflow:hidden;
+  isolation:isolate;
 }
-h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  color: var(--violet);
-  border-bottom: 2px solid var(--violet);
-  padding-bottom: 6px;
+header::before{
+  /* Header animated background (your pick) */
+  content:"";
+  position:absolute;inset:0;
+  background:url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOG5ibjlncHhhMXJteGdkdTgzMGNlZnpjN3d2b2kydzhtOXZteTRyNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QpVUMRUJGokfqXyfa1/giphy.gif') center/cover no-repeat;
+  filter:brightness(.85) saturate(1.05);
+  z-index:-2;
+}
+header::after{
+  /* dark overlay for legibility */
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(6,10,32,.65),rgba(6,10,32,.45));
+  z-index:-1;
+}
+.hero-wrap{
+  max-width:1000px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;gap:22px;
+}
+.portrait{
+  width:164px;height:164px;border-radius:50%;
+  border:3px solid #fff;object-fit:cover;
+  box-shadow:0 12px 28px rgba(0,0,0,.45), var(--ring);
+  animation:glow 3.8s ease-in-out infinite;
+}
+@keyframes glow{
+  0%,100%{box-shadow:0 12px 28px rgba(0,0,0,.45), 0 0 0 6px rgba(124,58,237,.22)}
+  50%{box-shadow:0 16px 34px rgba(0,0,0,.55), 0 0 0 10px rgba(56,189,248,.25)}
+}
+.hero-card{
+  background:rgba(255,255,255,.9);
+  border-radius:16px;
+  padding:22px 26px;
+  box-shadow:var(--shadow);
+  backdrop-filter:saturate(120%) blur(2px);
+  display:inline-block;
+}
+.hero-title{
+  margin:0;
+  font-family:"Playfair Display",serif;
+  font-size:42px;letter-spacing:.2px;color:#0b102b;
+}
+.hero-sub{margin:6px 0 0;font-weight:600;color:#26304d}
+.hero-loc{margin:4px 0 0;color:#334155}
+
+/* ===== SECTIONS (Gamma-like presentation) ===== */
+.section{
+  max-width:1000px;margin:58px auto 0;padding:0 20px;
+}
+.card{
+  background:#fff;border-radius:16px;box-shadow:var(--shadow);
+  padding:28px;
+}
+h2.section-title{
+  font-family:"Playfair Display",serif;
+  font-size:26px;margin:0 0 14px;color:var(--violet-deep);
+  border-bottom:2px solid var(--violet);padding-bottom:6px;
+}
+.muted{color:var(--muted)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:900px){
+  .grid-2{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
 }
 
-/* ==== SKILLS ==== */
-.skills span, .contact a {
-  display: inline-block;
-  background: linear-gradient(90deg, var(--cyan), var(--violet));
-  color: #0a0f2c;
-  padding: 8px 14px;
-  margin: 6px 6px 0 0;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 5px 10px rgba(100,100,255,0.3);
-}
-.skills span:hover, .contact a:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 16px rgba(120,180,255,0.4);
-}
+/* Academic two-column */
+.edu h3{margin:.2rem 0 .35rem;font-size:18px;color:#0b102b}
+.edu .line{margin:0;color:var(--muted);font-size:14px}
 
-/* ==== PROJECTS ==== */
-.project-card {
-  position: relative;
-  margin: 25px 0;
-  border-radius: 12px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.96);
-  box-shadow: 0 8px 22px rgba(0,0,0,0.1);
-  padding: 20px;
-  transition: transform 0.3s ease;
+/* Project sections (banner + content) */
+.project{
+  margin-top:18px;overflow:hidden;border-radius:16px;background:#fff;box-shadow:var(--shadow)
 }
-.project-card:hover {
-  transform: translateY(-3px);
+.project-banner{
+  height:160px;background-size:cover;background-position:center;
+  position:relative;
 }
-.project-card::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0; right: 0; height: 130px;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.9;
+.project-banner::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(9,12,38,.55),rgba(255,255,255,0));
 }
-.project-card::after {
-  content: "";
-  position: absolute;
-  left: 0; top: 0; right: 0; height: 130px;
-  background: linear-gradient(180deg, rgba(10,15,44,.6), transparent 70%);
-}
-.project-card > *:first-child { margin-top: 140px; }
-.project-card:nth-of-type(1)::before {
-  background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2NodGZucGt5eWRyZnlibjZ0aHZ4Nmx3aXVwdmt3enJ2dmk5dG5mbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sRFEa8lbeC7zbcIZZR/giphy.gif');
-}
-.project-card:nth-of-type(2)::before {
-  background-image: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmRhOGN2cnZmcnZmdWg3YWhmaTcyZTlpeG40bWdod3lnczEwaXV2OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oFzmrqRPhYnFg9oGs/giphy.gif');
-}
-.project-card a {
-  color: var(--violet);
-  font-weight: 600;
-  text-decoration: none;
-}
+.project-body{padding:22px 24px}
+.feature-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:12px}
+.feature{background:linear-gradient(180deg,#f1f5ff,#ffffff);border:1px solid rgba(8,13,40,.06);border-radius:12px;padding:14px 14px 12px}
+.feature h4{margin:.1rem 0 .35rem;font-size:15px;color:#0b102b}
+.feature p{margin:0;font-size:14px;color:#334155}
+@media (max-width:900px){.feature-cards{grid-template-columns:1fr}}
 
-/* ==== FOOTER ==== */
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #fff;
-  background: linear-gradient(90deg, var(--cyan), var(--violet));
-  border-top: 1px solid rgba(255,255,255,0.2);
+.split{
+  display:grid;grid-template-columns:1.4fr .9fr;gap:20px
 }
-
-/* ==== ANIMATION ==== */
-.fade-in { opacity: 0; transform: translateY(20px); }
-.fade-in.visible { opacity: 1; transform: translateY(0); transition: all 0.9s ease; }
-
-@media (max-width: 768px) {
-  header { padding: 90px 20px; }
-  header img { width: 120px; height: 120px; }
-  .hero-text h1 { font-size: 34px; }
+.preview{
+  border-radius:12px;min-height:200px;background-size:cover;background-position:center;
+  box-shadow:0 8px 20px rgba(10,16,46,.12)
 }
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+
+.badge{display:inline-block;background:linear-gradient(90deg,var(--cyan),var(--violet));
+  color:#10153a;font-weight:700;font-size:12px;padding:6px 10px;border-radius:999px}
+
+/* Programs / Leadership cards */
+.stack{display:grid;grid-template-columns:1fr;gap:16px}
+.stack .row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.stack .tile{
+  background:linear-gradient(180deg,#f5f7ff,#fff);
+  border:1px solid rgba(8,13,40,.06);border-radius:12px;padding:16px
+}
+.stack .tile h4{margin:0 0 6px;font-size:16px}
+.stack .tile p{margin:0;color:#475569;font-size:14px}
+@media (max-width:900px){.stack .row{grid-template-columns:1fr}}
+
+/* Certifications list like Gamma */
+.list{
+  display:grid;gap:12px
+}
+.item{
+  border:1px solid rgba(8,13,40,.08);border-radius:12px;padding:14px;background:#fff
+}
+.item strong{display:block;color:#0b102b;margin-bottom:4px}
+
+/* Skills & Languages grid with badges */
+.skills-grid{
+  display:grid;grid-template-columns:1.5fr 1.5fr 1fr;gap:22px
+}
+.skill-block h4{margin:0 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  background:linear-gradient(90deg,var(--cyan),var(--violet));
+  color:#0a0f2c;padding:8px 12px;border-radius:999px;font-weight:700;font-size:12px
+}
+.lang{
+  background:#1e2a5a;color:#e7f3ff;border-radius:14px;padding:14px 16px
+}
+.lang h4{margin:0 0 8px;color:#fff}
+.lang .meter{height:10px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden}
+.lang .meter > span{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet))}
+
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease, transform .8s ease}
+.reveal.show{opacity:1;transform:translateY(0)}
 </style>
 </head>
-
 <body>
+
+<!-- ===== HERO ===== -->
 <header>
-  <div class="hero-container">
-    <img src="PROFPFP.jpg" alt="Amna Boughamoura">
-    <div class="hero-text">
-      <h1>Amna Boughamoura</h1>
-      <p class="tagline">IoT & AI Developer | Smart Systems & Computer Vision</p>
-      <p>📍 Monastir, Tunisia</p>
+  <div class="hero-wrap reveal">
+    <img class="portrait" src="PROFPFP.jpg" alt="Amna Boughamoura">
+    <div class="hero-card">
+      <h1 class="hero-title">Amna Boughamoura</h1>
+      <p class="hero-sub">ICT Student · IoT &amp; AI Developer</p>
+      <p class="hero-loc">📍 Monastir, Tunisia</p>
     </div>
   </div>
 </header>
 
-<section>
-  <h2>About Me</h2>
-  <p>
-    I am an ICT student specializing in IoT Networks at ISIMM, passionate about designing smart systems that bridge hardware and AI.
-    My work focuses on integrating sensors, microcontrollers, and deep learning algorithms to create solutions that enhance everyday
-    wellbeing, automation, and environmental sustainability.
-  </p>
-  <p>
-    I have a strong foundation in programming, data analysis, and human-centered design, with experience in Internet of Things
-    projects, emotion recognition, and home automation systems. I enjoy combining creativity, logic, and empathy to solve real-world
-    challenges using technology.
-  </p>
-</section>
-
-<section>
-  <h2>Technical & Soft Skills</h2>
-  <div class="skills">
-    <span>Python</span>
-    <span>C Programming</span>
-    <span>Arduino & ESP32</span>
-    <span>Raspberry Pi</span>
-    <span>Machine Learning</span>
-    <span>OpenCV</span>
-    <span>DeepFace</span>
-    <span>Data Visualization</span>
-    <span>HTML / CSS</span>
-    <span>UI/UX Design</span>
-    <span>Leadership</span>
-    <span>Project Management</span>
-    <span>Team Collaboration</span>
-    <span>Public Speaking</span>
+<!-- ===== ACADEMIC FOUNDATION (Gamma-style 2-column) ===== -->
+<section class="section">
+  <div class="card reveal">
+    <h2 class="section-title">Academic Foundation</h2>
+    <div class="grid-2 edu">
+      <div>
+        <h3>Higher Institute of Informatics &amp; Mathematics of Monastir (ISIMM)</h3>
+        <p class="line"><strong>License in ICT — IoT Networks</strong></p>
+        <p class="line">2022 – Present · Monastir, Tunisia</p>
+        <p class="line">Studies in IoT protocols, sensor systems, embedded programming, computer vision, and systems architecture with hands-on lab experience.</p>
+      </div>
+      <div>
+        <h3>Fatouma Bourguiba Monastir High School</h3>
+        <p class="line"><strong>Baccalaureate in Experimental Sciences (Honors)</strong></p>
+        <p class="line">2022 · Monastir, Tunisia</p>
+        <p class="line">Strong foundation in mathematics, physics, and chemistry with distinction in scientific disciplines.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section>
-  <h2>Projects</h2>
+<!-- ===== DWA PROJECT (feature boxes like Gamma) ===== -->
+<section class="section">
+  <div class="project reveal">
+    <div class="project-banner" style="background-image:url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2NodGZucGt5eWRyZnlibjZ0aHZ4Nmx3aXVwdmt3enJ2dmk5dG5mbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sRFEa8lbeC7zbcIZZR/giphy.gif')"></div>
+    <div class="project-body">
+      <h2 class="section-title" style="border:none;padding-bottom:0;margin-bottom:6px">Daily Wellness Assistant (PFA Project)</h2>
+      <p class="muted">Founder &amp; Lead Developer — Real-time emotion detection and personalized feedback using DeepFace + OpenCV.</p>
+      <div class="feature-cards">
+        <div class="feature">
+          <h4>Real-Time Function Detection</h4>
+          <p>Webcam analysis of facial expressions to infer focus, fatigue, stress, and overall affect in real time.</p>
+        </div>
+        <div class="feature">
+          <h4>Continuous Monitoring</h4>
+          <p>Processes 1,000+ data points per hour; classifies 7 emotions (Happy, Sad, Angry, Neutral, Fear, Disgust, Surprise).</p>
+        </div>
+        <div class="feature">
+          <h4>Personalized Feedback</h4>
+          <p>Delivers motivational or stress-management messages per session; privacy-first and local processing.</p>
+        </div>
+      </div>
+      <p style="margin-top:12px">
+        <a class="badge" href="https://github.com/amna-boughamoura/daily-wellness-assistant" target="_blank" rel="noopener">View on GitHub</a>
+      </p>
+    </div>
+  </div>
+</section>
 
-  <div class="project-card">
-    <h3>🧠 Daily Wellness Assistant</h3>
-    <p>
-      A real-time facial emotion recognition system combining Deep Learning and OpenCV to monitor and visualize wellbeing.
-      Integrates with IoT sensors to adapt environment conditions based on detected emotions.
+<!-- ===== HOME AUTOMATION (split layout like Gamma) ===== -->
+<section class="section">
+  <div class="project reveal">
+    <div class="project-banner" style="background-image:url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmRhOGN2cnZmcnZmdWg3YWhmaTcyZTlpeG40bWdod3lnczEwaXV2OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oFzmrqRPhYnFg9oGs/giphy.gif')"></div>
+    <div class="project-body split">
+      <div>
+        <h2 class="section-title" style="border:none;padding-bottom:0;margin-bottom:6px">Intelligent Home Automation System</h2>
+        <p class="muted">IoT Developer — Arduino/ESP32-based sensors with mobile/LCD control for lighting, irrigation, and climate.</p>
+        <ul>
+          <li>Integrated DHT11/LM35/LDR/soil sensors with actuators; manual &amp; remote override.</li>
+          <li>Designed UI for monitoring and safe local control; energy-aware automation.</li>
+        </ul>
+        <p><span class="badge">Jan – May 2025 · Monastir, Tunisia</span></p>
+        <p style="margin-top:6px"><a class="badge" href="https://github.com/amna-boughamoura/intelligent-home-automation" target="_blank" rel="noopener">View on GitHub</a></p>
+      </div>
+      <div class="preview" style="background-image:url('https://images.unsplash.com/photo-1581093458791-9d09f50fd68d?q=80&w=1200&auto=format&fit=crop')"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROGRAMS & LEADERSHIP (cards like Gamma) ===== -->
+<section class="section">
+  <div class="card reveal">
+    <h2 class="section-title">Programs &amp; Leadership</h2>
+
+    <!-- Tech Pathways MENA -->
+    <div class="stack" style="margin-bottom:14px">
+      <h3 style="margin:0 0 10px">Tech Pathways MENA Program</h3>
+      <div class="row">
+        <div class="tile">
+          <h4>Program Recognition</h4>
+          <p>Selected for a regional initiative focused on innovation, technology, and professional development.</p>
+        </div>
+        <div class="tile">
+          <h4>Skill Development</h4>
+          <p>Workshops and mentorship on entrepreneurship, digital skills, and leadership.</p>
+        </div>
+        <div class="tile">
+          <h4>Networking &amp; Collaboration</h4>
+          <p>Collaborated with peers across MENA; practiced modern teamwork and communication.</p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:8px">Timeline: Oct 2025 – Present</p>
+    </div>
+
+    <!-- Sahni Venture -->
+    <div class="stack" style="margin-bottom:14px">
+      <h3 style="margin:0 0 10px">Sahni Startup Venture — IoT &amp; AI-Powered Sustainability</h3>
+      <div class="row">
+        <div class="tile"><h4>Team Leadership</h4><p>Led team to win IEEE Internal Pitching Competition 2023 (1st place).</p></div>
+        <div class="tile"><h4>Product Development</h4><p>Designed concept for smart meal planning &amp; food waste reduction using sensors + AI.</p></div>
+        <div class="tile"><h4>Business Foundations</h4><p>Completed OSTX Training; modeled market &amp; value proposition.</p></div>
+      </div>
+    </div>
+
+    <!-- IEEE WIE -->
+    <div class="stack">
+      <h3 style="margin:0 0 10px">IEEE ISIMM — Women in Engineering (WIE) · Vice Chair</h3>
+      <div class="row">
+        <div class="tile"><h4>WIE Care &amp; Share</h4><p>Charity initiative supporting 10+ families and an orphanage during Ramadan.</p></div>
+        <div class="tile"><h4>WIE Heal 2.0</h4><p>Breast-cancer awareness campaign with healthcare speakers; 50+ attendees.</p></div>
+        <div class="tile"><h4>WIE Motivate &amp; UX Training</h4><p>Organized life-skills and UI/UX workshops; 15–30 students each.</p></div>
+      </div>
+      <p class="muted" style="margin-top:8px">Vice Chair · Feb – Nov 2023 · Monastir, Tunisia</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACHIEVEMENTS ===== -->
+<section class="section">
+  <div class="card reveal">
+    <h2 class="section-title">Competition &amp; Achievements</h2>
+    <div class="grid-3">
+      <div class="tile" style="text-align:center">
+        <h4 style="font-size:32px;margin:0;color:#0b102b">1</h4>
+        <p class="muted" style="margin:0">University Rank</p>
+        <p class="muted">IEEEXtreme 17</p>
+      </div>
+      <div class="tile" style="text-align:center">
+        <h4 style="font-size:32px;margin:0;color:#0b102b">8</h4>
+        <p class="muted" style="margin:0">National Rank</p>
+        <p class="muted">Across Tunisia</p>
+      </div>
+      <div class="tile" style="text-align:center">
+        <h4 style="font-size:32px;margin:0;color:#0b102b">50+</h4>
+        <p class="muted" style="margin:0">Students Engaged</p>
+        <p class="muted">Through workshops &amp; events</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CERTIFICATIONS ===== -->
+<section class="section">
+  <div class="card reveal">
+    <h2 class="section-title">Certifications &amp; Technical Recognition</h2>
+    <div class="list">
+      <div class="item"><strong>IEEEXtreme 17th Edition (2023)</strong>Competitive programming achievement with national ranking; demonstrated algorithmic expertise and problem solving under pressure.</div>
+      <div class="item"><strong>OSTX Training Program (2023)</strong>Entrepreneurship and startup development certification: business modeling, market analysis, pitch development.</div>
+      <div class="item"><strong>Flutter Development Workshop (2023)</strong>Cross-platform app dev with modern UX/UI principles and rapid prototyping.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS & LANGUAGES (grid) ===== -->
+<section class="section">
+  <div class="card reveal">
+    <h2 class="section-title">Technical Expertise &amp; Languages</h2>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h4>Core Technologies</h4>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">C</span>
+          <span class="chip">Arduino</span>
+          <span class="chip">ESP32</span>
+          <span class="chip">OpenCV</span>
+          <span class="chip">DeepFace</span>
+          <span class="chip">Raspberry&nbsp;Pi</span>
+          <span class="chip">HTML/CSS</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Professional Competencies</h4>
+        <div class="chips">
+          <span class="chip">Leadership</span>
+          <span class="chip">Teamwork</span>
+          <span class="chip">Problem-Solving</span>
+          <span class="chip">Communication</span>
+          <span class="chip">Project&nbsp;Management</span>
+          <span class="chip">UI/UX</span>
+        </div>
+      </div>
+      <div class="lang">
+        <h4>Languages</h4>
+        <p style="margin:.2rem 0 .5rem">Arabic — Native</p>
+        <div class="meter" aria-label="Arabic 5/5"><span style="width:100%"></span></div>
+        <p style="margin:1rem 0 .5rem">English — Fluent</p>
+        <div class="meter" aria-label="English 5/5"><span style="width:100%"></span></div>
+        <p style="margin:1rem 0 .5rem">French — Advanced</p>
+        <div class="meter" aria-label="French 4/5"><span style="width:80%"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section">
+  <div class="card reveal" style="text-align:center">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="muted">Open to collaboration, internships, and innovative IoT/AI projects.</p>
+    <p style="margin-top:10px">
+      <a class="badge" href="mailto:amna.boughamoura@gmail.com">📧 Email</a>
+      <a class="badge" href="https://github.com/amna-boughamoura" target="_blank" rel="noopener">💻 GitHub</a>
+      <a class="badge" href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank" rel="noopener">🔗 LinkedIn</a>
     </p>
-    <ul>
-      <li>Trained CNN model with DeepFace & TensorFlow for emotion classification.</li>
-      <li>Deployed local recognition system with live camera stream.</li>
-    </ul>
-    <a href="https://github.com/amna-boughamoura/daily-wellness-assistant">→ View on GitHub</a>
-  </div>
-
-  <div class="project-card">
-    <h3>🏠 Intelligent Home Automation System</h3>
-    <p>
-      A connected IoT ecosystem built with Arduino and ESP32 microcontrollers for smart lighting, irrigation, and climate control.
-    </p>
-    <ul>
-      <li>Integrated multiple sensors (temperature, humidity, light, and soil moisture).</li>
-      <li>Implemented efficient energy management and cloud monitoring.</li>
-    </ul>
-    <a href="https://github.com/amna-boughamoura/intelligent-home-automation">→ View on GitHub</a>
   </div>
 </section>
 
-<section>
-  <h2>Achievements & Leadership</h2>
-  <ul>
-    <li>Vice Chair — IEEE Women in Engineering Affinity Group, ISIMM Student Branch (2023–2024).</li>
-    <li>1st place at ISIMM & 8th nationally — IEEEXtreme 17 Programming Competition.</li>
-    <li>Winner — IEEE Smart Sustainability Startup Challenge “Sahni”.</li>
-    <li>Participant — Tech Pathways MENA Program by TechWomen and Legacy International.</li>
-    <li>Organized and led multiple workshops on innovation, IoT, and wellbeing technology.</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Languages</h2>
-  <ul>
-    <li>Arabic — Native</li>
-    <li>English — Fluent</li>
-    <li>French — Advanced</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Contact</h2>
-  <div class="contact">
-    <a href="mailto:amna.boughamoura@gmail.com">📧 Email</a>
-    <a href="https://github.com/amna-boughamoura">💻 GitHub</a>
-    <a href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/">🔗 LinkedIn</a>
-  </div>
-</section>
-
-<footer>
+<footer style="text-align:center;color:#e9edff;padding:30px 16px">
   © 2025 Amna Boughamoura — All rights reserved
 </footer>
 
 <script>
-const faders = document.querySelectorAll('section, .project-card, .skills span');
-const observer = new IntersectionObserver((entries,obs)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      obs.unobserve(entry.target);
-    }
+/* Reveal-on-scroll like slides */
+const els=[...document.querySelectorAll('.reveal')];
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
   });
-},{threshold:0.1});
-faders.forEach(el=>{
-  el.classList.add('fade-in');
-  observer.observe(el);
-});
+},{threshold:.12, rootMargin:"0px 0px -10% 0px"});
+els.forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
