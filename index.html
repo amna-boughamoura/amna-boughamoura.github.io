@@ -154,125 +154,88 @@ footer{
   color:#fff;
   font-size:17px;
 }
-  <style id="hero-hotfix">
-  /* Make hero fill the screen and give breathing room */
-  #hero{min-height:100vh !important; padding-top:140px !important; padding-bottom:120px !important;}
-
-  /* Darken the GIF so your name pops (and keep the white fade at bottom) */
-  #hero::before{filter:saturate(1) brightness(.65) contrast(1.1) !important;}
-  #hero::after{
-    background:linear-gradient(180deg,
-      rgba(8,15,40,0.92) 0%,
-      rgba(8,15,40,0.75) 40%,
-      rgba(255,255,255,0.92) 78%,
-      #ffffff 100%) !important;
-  }
-
-  /* Portrait spacing + size */
-  #hero .hero-pic{width:230px !important; height:230px !important; margin-bottom:40px !important;
-                  border-radius:50% !important; border:5px solid #fff !important;
-                  box-shadow:0 6px 25px rgba(0,0,0,.4) !important; object-fit:cover !important;}
-
-  /* Huge, readable name + role */
-  #hero .hero-name, #hero h1{font-family:"Playfair Display",serif !important;
-    font-size:96px !important; line-height:1.05 !important; margin:10px 0 20px !important;
-    color:#fff !important; text-shadow:0 8px 35px rgba(0,0,0,.8) !important;}
-  #hero .hero-role{font-size:38px !important; font-weight:800 !important; color:#e8f0ff !important;
-    margin:0 0 32px !important; text-shadow:0 4px 22px rgba(0,0,0,.6) !important;}
-
-  /* Softer translucent intro box (no chunky white rectangle) */
-  #hero .hero-intro{max-width:900px !important; font-size:22px !important; line-height:1.8 !important;
-    margin:0 auto 40px !important; color:#0f1a35 !important;
-    background:rgba(255,255,255,.72) !important; padding:18px 26px !important;
-    border-radius:20px !important; backdrop-filter:blur(6px) !important;
-    box-shadow:0 2px 20px rgba(0,0,0,.05) !important;}
-
-  /* Bigger buttons that sit nicely under the intro */
-  #hero .btn{font-size:18px !important; padding:16px 34px !important; border-radius:14px !important;
-    margin:8px 12px !important; font-weight:800 !important;
-    background:linear-gradient(90deg,#1d4ed8,#60a5fa) !important;}
-
-  /* Prevent any earlier rules from shrinking fonts globally in hero */
-  #hero p, #hero li{font-size:22px !important}
   <style id="hero-fix-final">
-  /* Make the hero fit perfectly on one screen and add safe top/bottom padding */
-  #hero{
-    min-height:100vh !important;
-    display:flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    text-align:center !important;
-    overflow:hidden !important;
-    padding:0 !important;
+  #hero {
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    overflow: hidden !important;
   }
-  /* Darken GIF more + delay white fade so text sits over dark area */
-  #hero::before{
-    filter:brightness(.55) contrast(1.15) saturate(1.05) !important;
+
+  #hero::before {
+    filter: brightness(0.55) contrast(1.1) !important;
   }
-  #hero::after{
-    background:linear-gradient(180deg,
-      rgba(6,12,32,.92) 0%,
-      rgba(6,12,32,.82) 52%,
-      rgba(255,255,255,.90) 88%,
+
+  #hero::after {
+    background: linear-gradient(180deg,
+      rgba(6, 12, 32, 0.95) 0%,
+      rgba(6, 12, 32, 0.85) 50%,
+      rgba(255, 255, 255, 0.9) 88%,
       #fff 100%) !important;
   }
 
-  /* Inner container: push content down from the very top so the photo isn't cut */
-  #hero .hero-inner{
-    width:100% !important;
-    max-width:1100px !important;
-    padding:calc(24px + env(safe-area-inset-top)) 24px calc(28px + env(safe-area-inset-bottom)) !important;
-    margin:0 auto !important;
+  #hero .hero-inner {
+    width: 100% !important;
+    max-width: 950px !important;
+    padding: 40px 24px !important;
+    margin: 0 auto !important;
   }
 
-  /* Responsive, not oversized */
-  #hero .hero-pic{
-    width:clamp(140px,16vw,180px) !important;
-    height:clamp(140px,16vw,180px) !important;
-    margin:0 auto clamp(18px,2.5vw,26px) !important;
-    border:5px solid #fff !important; border-radius:50% !important; object-fit:cover !important;
-    box-shadow:0 6px 24px rgba(0,0,0,.35) !important;
+  /* Rounded-rectangle profile pic (original look) */
+  #hero .hero-pic {
+    width: 180px !important;
+    height: 220px !important;
+    border-radius: 25px !important;
+    object-fit: cover !important;
+    margin-bottom: 24px !important;
+    border: 4px solid #fff !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45) !important;
   }
 
-  /* Name & role scale with screen; no more giant overflow */
-  #hero .hero-name, #hero h1{
-    font-family:"Playfair Display",serif !important;
-    font-size:clamp(44px,7.2vw,72px) !important;
-    line-height:1.05 !important;
-    margin:8px 0 12px !important;
-    color:#fff !important;
-    text-shadow:0 8px 30px rgba(0,0,0,.85) !important;
-  }
-  #hero .hero-role{
-    font-size:clamp(18px,3.2vw,28px) !important;
-    font-weight:800 !important;
-    color:#eaf1ff !important;
-    margin:0 0 clamp(12px,2.2vw,20px) !important;
-    text-shadow:0 5px 18px rgba(0,0,0,.6) !important;
+  /* Smaller font sizes, balanced spacing */
+  #hero .hero-name,
+  #hero h1 {
+    font-family: "Playfair Display", serif !important;
+    font-size: clamp(38px, 5vw, 58px) !important;
+    line-height: 1.1 !important;
+    margin: 10px 0 12px !important;
+    color: #fff !important;
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.8) !important;
   }
 
-  /* Softer intro box that doesn’t feel huge */
-  #hero .hero-intro{
-    max-width:880px !important;
-    margin:0 auto clamp(16px,2.6vw,28px) !important;
-    font-size:clamp(16px,2.1vw,20px) !important;
-    line-height:1.75 !important;
-    color:#0f1733 !important;
-    background:rgba(255,255,255,.74) !important;
-    padding:clamp(12px,2vw,18px) clamp(16px,2.4vw,24px) !important;
-    border-radius:18px !important;
-    backdrop-filter:blur(6px) !important;
-    box-shadow:0 2px 18px rgba(0,0,0,.08) !important;
+  #hero .hero-role {
+    font-size: clamp(16px, 2.5vw, 24px) !important;
+    font-weight: 700 !important;
+    color: #eaf1ff !important;
+    margin: 0 0 20px !important;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.6) !important;
   }
 
-  /* Buttons stay on the first screen and don’t get cut off */
-  #hero .btn{
-    font-size:clamp(14px,1.8vw,17px) !important;
-    padding:clamp(10px,1.6vw,14px) clamp(18px,2.2vw,26px) !important;
-    border-radius:14px !important;
-    margin:8px 10px !important;
-    background:linear-gradient(90deg,#1d4ed8,#60a5fa) !important;
-    font-weight:800 !important; color:#fff !important; text-decoration:none !important;
+  #hero .hero-intro {
+    max-width: 750px !important;
+    font-size: clamp(14px, 1.9vw, 18px) !important;
+    line-height: 1.7 !important;
+    margin: 0 auto 25px !important;
+    color: #0f1733 !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+    padding: 14px 22px !important;
+    border-radius: 16px !important;
+    backdrop-filter: blur(6px) !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  #hero .btn {
+    font-size: clamp(14px, 1.5vw, 16px) !important;
+    padding: 10px 22px !important;
+    border-radius: 12px !important;
+    margin: 6px 10px !important;
+    font-weight: 700 !important;
+    background: linear-gradient(90deg, #1e40af, #3b82f6) !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25) !important;
   }
 </style>
 
