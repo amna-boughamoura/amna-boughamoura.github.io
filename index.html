@@ -154,6 +154,46 @@ footer{
   color:#fff;
   font-size:17px;
 }
+  <style id="hero-hotfix">
+  /* Make hero fill the screen and give breathing room */
+  #hero{min-height:100vh !important; padding-top:140px !important; padding-bottom:120px !important;}
+
+  /* Darken the GIF so your name pops (and keep the white fade at bottom) */
+  #hero::before{filter:saturate(1) brightness(.65) contrast(1.1) !important;}
+  #hero::after{
+    background:linear-gradient(180deg,
+      rgba(8,15,40,0.92) 0%,
+      rgba(8,15,40,0.75) 40%,
+      rgba(255,255,255,0.92) 78%,
+      #ffffff 100%) !important;
+  }
+
+  /* Portrait spacing + size */
+  #hero .hero-pic{width:230px !important; height:230px !important; margin-bottom:40px !important;
+                  border-radius:50% !important; border:5px solid #fff !important;
+                  box-shadow:0 6px 25px rgba(0,0,0,.4) !important; object-fit:cover !important;}
+
+  /* Huge, readable name + role */
+  #hero .hero-name, #hero h1{font-family:"Playfair Display",serif !important;
+    font-size:96px !important; line-height:1.05 !important; margin:10px 0 20px !important;
+    color:#fff !important; text-shadow:0 8px 35px rgba(0,0,0,.8) !important;}
+  #hero .hero-role{font-size:38px !important; font-weight:800 !important; color:#e8f0ff !important;
+    margin:0 0 32px !important; text-shadow:0 4px 22px rgba(0,0,0,.6) !important;}
+
+  /* Softer translucent intro box (no chunky white rectangle) */
+  #hero .hero-intro{max-width:900px !important; font-size:22px !important; line-height:1.8 !important;
+    margin:0 auto 40px !important; color:#0f1a35 !important;
+    background:rgba(255,255,255,.72) !important; padding:18px 26px !important;
+    border-radius:20px !important; backdrop-filter:blur(6px) !important;
+    box-shadow:0 2px 20px rgba(0,0,0,.05) !important;}
+
+  /* Bigger buttons that sit nicely under the intro */
+  #hero .btn{font-size:18px !important; padding:16px 34px !important; border-radius:14px !important;
+    margin:8px 12px !important; font-weight:800 !important;
+    background:linear-gradient(90deg,#1d4ed8,#60a5fa) !important;}
+
+  /* Prevent any earlier rules from shrinking fonts globally in hero */
+  #hero p, #hero li{font-size:22px !important}
 </style>
 </head>
 <body>
