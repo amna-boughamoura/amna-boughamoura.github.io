@@ -32,7 +32,7 @@ h2{
 p,li{font-size:20px}
 ul{padding-left:24px}
 
-/* ===== HERO (CLEAN + RESPONSIVE) ===== */
+/* ===== HERO ===== */
 #hero{
   position:relative;
   min-height:100vh;
@@ -41,7 +41,7 @@ ul{padding-left:24px}
   justify-content:center;
   text-align:center;
   overflow:hidden;
-  padding:0;           /* we'll control spacing with inner container */
+  padding:0;
 }
 #hero::before{
   content:"";
@@ -53,7 +53,6 @@ ul{padding-left:24px}
 #hero::after{
   content:"";
   position:absolute; inset:0;
-  /* darker top, white fade starts late to keep text on dark area */
   background:linear-gradient(180deg,
     rgba(6,12,32,.92) 0%,
     rgba(6,12,32,.82) 52%,
@@ -68,17 +67,16 @@ ul{padding-left:24px}
   margin:0 auto;
 }
 .hero-pic{
-  width:170px;
-  height:210px;
+  width:200px;
+  height:200px;
   object-fit:cover;
-  border-radius:24px;         /* rounded rectangle (original shape) */
-  border:4px solid #fff;
+  border-radius:50%;         /* circular image */
+  border:5px solid #fff;
   box-shadow:0 6px 22px rgba(0,0,0,.4);
   margin:0 auto 24px;
 }
 .hero-name{
   font-family:"Playfair Display",serif;
-  /* smaller, responsive size */
   font-size:clamp(38px,6vw,58px);
   line-height:1.1;
   margin:10px 0 12px;
