@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Amna Boughamoura | IoT & AI Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
@@ -10,108 +10,103 @@
 :root {
   --blue1: #3b82f6;
   --blue2: #60a5fa;
-  --light-blue: #eaf4ff;
   --dark-text: #0a0a0a;
   --mid-text: #333;
 }
 
-/* ===== GLOBAL RESET ===== */
-html, body {
+/* ==== GLOBAL ==== */
+body {
   margin: 0;
-  padding: 0;
-  background: #ffffff;
-  color: var(--dark-text);
   font-family: "Open Sans", sans-serif;
+  background: #fff;
+  color: var(--dark-text);
   scroll-behavior: smooth;
-  line-height: 1.7;
 }
 
-/* ===== HERO ===== */
+/* ==== HEADER ==== */
 header {
   position: relative;
-  text-align: center;
-  color: var(--dark-text);
-  padding: 180px 20px 160px;
+  height: 100vh;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGlmZTh4MDQ4aHFwcGVmbHY4dXplaGY2NmNlcmtlMHBkZDVyc3c0OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lbcLMX9B6sTsGjUmS3/giphy.gif')
-    center/cover no-repeat;
-  filter: brightness(0.85);
+  background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGlmZTh4MDQ4aHFwcGVmbHY4dXplaGY2NmNlcmtlMHBkZDVyc3c0OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lbcLMX9B6sTsGjUmS3/giphy.gif') center/cover no-repeat;
   z-index: -2;
 }
 header::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%, white 85%);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.8) 60%, #fff 100%);
   z-index: -1;
 }
 .hero {
-  position: relative;
   z-index: 2;
-  max-width: 950px;
-  margin: 0 auto;
+  max-width: 900px;
+  padding: 20px;
 }
 .hero img {
-  width: 190px;
-  height: 190px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
+  border: 5px solid white;
+  margin-bottom: 20px;
   object-fit: cover;
-  border: 5px solid #fff;
-  margin-bottom: 30px;
 }
 .hero h1 {
   font-family: "Playfair Display", serif;
   font-size: 70px;
-  margin: 0 0 10px;
   color: #0a1e3f;
+  margin: 10px 0;
 }
 .hero h2 {
-  font-size: 32px;
+  font-size: 28px;
+  color: var(--blue1);
   font-weight: 600;
   margin: 0 0 20px;
-  color: #1b3a7a;
 }
 .hero p {
-  font-size: 19px;
+  font-size: 18px;
   color: var(--mid-text);
-  max-width: 780px;
+  max-width: 700px;
   margin: 0 auto 30px;
 }
 .hero .buttons a {
   display: inline-block;
   background: linear-gradient(90deg, var(--blue1), var(--blue2));
-  color: white;
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
-  padding: 12px 26px;
+  padding: 12px 24px;
   border-radius: 6px;
-  margin: 0 8px;
+  margin: 6px;
   transition: all 0.3s ease;
 }
 .hero .buttons a:hover {
   background: linear-gradient(90deg, var(--blue2), var(--blue1));
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
-/* ===== SECTIONS ===== */
+/* ==== SECTIONS ==== */
 section {
   max-width: 950px;
-  margin: 80px auto;
-  padding: 10px 20px;
+  margin: 100px auto;
+  padding: 0 20px;
 }
 h2 {
   font-family: "Playfair Display", serif;
-  font-size: 30px;
+  font-size: 32px;
   color: var(--blue1);
   border-bottom: 2px solid var(--blue2);
-  padding-bottom: 8px;
-  margin-bottom: 16px;
-  text-align: left;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
 }
 p, li {
   font-size: 18px;
@@ -122,30 +117,39 @@ ul {
 }
 section img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 10px;
   margin-top: 10px;
 }
 
-/* ===== GIF BANDS ===== */
+/* ==== GIF BAND ==== */
 .band {
   position: relative;
-  height: 200px;
+  height: 220px;
   background-size: cover;
   background-position: center;
 }
 .band::after {
   content: "";
   position: absolute;
-  left: 0; right: 0; bottom: -1px;
-  height: 140px;
-  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #ffffff 90%);
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #fff 100%);
 }
 
-/* ===== SKILLS ===== */
+/* ==== WIE SECTION ==== */
+.wie-logo {
+  display: block;
+  margin: 20px auto;
+  max-width: 280px;
+}
+
+/* ==== SKILLS ==== */
 .skills span, .contact a {
   display: inline-block;
   background: linear-gradient(90deg, var(--blue1), var(--blue2));
-  color: white;
+  color: #fff;
   padding: 8px 16px;
   margin: 6px 4px;
   border-radius: 20px;
@@ -153,22 +157,42 @@ section img {
   font-size: 15px;
 }
 
-/* ===== FOOTER ===== */
+/* ==== CONTACT ==== */
+.contact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 15px;
+}
+.contact a {
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(90deg, var(--blue1), var(--blue2));
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: 0.3s ease;
+}
+.contact a:hover {
+  background: linear-gradient(90deg, var(--blue2), var(--blue1));
+  transform: scale(1.05);
+}
+
+/* ==== FOOTER ==== */
 footer {
   text-align: center;
   padding: 25px;
   background: linear-gradient(90deg, var(--blue1), var(--blue2));
-  color: white;
+  color: #fff;
   font-size: 15px;
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
-/* ===== ANIMATIONS ===== */
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s, transform .7s; }
-.reveal.show { opacity: 1; transform: translateY(0); }
+/* ==== ANIMATION ==== */
+.reveal {opacity:0; transform:translateY(30px); transition:opacity .7s, transform .7s;}
+.reveal.show {opacity:1; transform:translateY(0);}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -185,7 +209,7 @@ footer {
   </div>
 </header>
 
-<!-- ACADEMIC -->
+<!-- === ACADEMIC === -->
 <section class="reveal">
   <h2>Academic Foundation</h2>
   <p><strong>Higher Institute of Informatics and Mathematics of Monastir (ISIMM)</strong> — License in ICT (IoT Networks), 2022–Present.</p>
@@ -193,10 +217,10 @@ footer {
   <p><strong>Fatouma Bourguiba High School</strong> — Baccalaureate in Experimental Sciences (Honors), 2022.</p>
 </section>
 
-<!-- DWA GIF -->
+<!-- === GIF BAND === -->
 <div class="band" style="background-image:url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2NodGZucGt5eWRyZnlibjZ0aHZ4Nmx3aXVwdmt3enJ2dmk5dG5mbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sRFEa8lbeC7zbcIZZR/giphy.gif');"></div>
 
-<!-- DWA -->
+<!-- === PROJECTS === -->
 <section class="reveal">
   <h2>Daily Wellness Assistant</h2>
   <p>Designed and built a real-time emotion recognition assistant that uses DeepFace + OpenCV to detect human emotions and provide personalized feedback for wellbeing.</p>
@@ -208,10 +232,9 @@ footer {
   <p><a class="skills" href="https://github.com/amna-boughamoura/daily-wellness-assistant" target="_blank">View on GitHub</a></p>
 </section>
 
-<!-- HOME AUTOMATION GIF -->
+<!-- === HOME AUTOMATION === -->
 <div class="band" style="background-image:url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmRhOGN2cnZmcnZmdWg3YWhmaTcyZTlpeG40bWdod3lnczEwaXV2OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oFzmrqRPhYnFg9oGs/giphy.gif');"></div>
 
-<!-- HOME AUTOMATION -->
 <section class="reveal">
   <h2>Intelligent Home Automation System</h2>
   <p>Developed a smart IoT ecosystem using Arduino and ESP32 microcontrollers to control home lighting, irrigation, and temperature through automated rules and real-time monitoring.</p>
@@ -220,21 +243,19 @@ footer {
     <li>Created user dashboard for control and analytics.</li>
     <li>Implemented efficient energy management logic.</li>
   </ul>
-  <p><a class="skills" href="https://github.com/amna-boughamoura/intelligent-home-automation" target="_blank">View on GitHub</a></p>
 </section>
 
-<!-- TECH PATHWAYS -->
+<!-- === TECH PATHWAYS === -->
 <div class="band" style="background:#fff url('mena tech.png') center/contain no-repeat;"></div>
-
 <section class="reveal">
   <h2>Tech Pathways MENA Program</h2>
   <p>Selected for a regional initiative supporting innovation, entrepreneurship, and technical leadership among young women in STEM across MENA. Focused on sustainable technology and digital transformation.</p>
 </section>
 
-<!-- WIE -->
+<!-- === WIE === -->
 <section class="reveal">
   <h2>IEEE Women in Engineering (WIE)</h2>
-  <img src="wie123.jpg" alt="IEEE WIE Logo">
+  <img src="wie123.jpg" alt="IEEE WIE Logo" class="wie-logo">
   <p>Vice Chair (2023) — Led initiatives on women’s empowerment in tech, health awareness, and youth innovation at IEEE ISIMM Student Branch.</p>
   <ul>
     <li>Organized <strong>WIE Heal 2.0</strong>: Breast-cancer awareness campaign.</li>
@@ -243,7 +264,7 @@ footer {
   </ul>
 </section>
 
-<!-- SKILLS -->
+<!-- === SKILLS === -->
 <section class="reveal">
   <h2>Skills & Languages</h2>
   <div class="skills">
@@ -254,11 +275,14 @@ footer {
   <p><strong>Languages:</strong> Arabic (Native) · English (Fluent) · French (Advanced)</p>
 </section>
 
-<!-- CONTACT -->
+<!-- === CONTACT === -->
 <section class="reveal">
   <h2>Contact</h2>
-  <p>📧 <a href="mailto:amna.boughamoura@gmail.com">amna.boughamoura@gmail.com</a></p>
-  <p>💻 <a href="https://github.com/amna-boughamoura" target="_blank">GitHub</a> | 🔗 <a href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank">LinkedIn</a></p>
+  <div class="contact">
+    <a href="mailto:amna.boughamoura@gmail.com">📧 Email</a>
+    <a href="https://github.com/amna-boughamoura" target="_blank">💻 GitHub</a>
+    <a href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank">🔗 LinkedIn</a>
+  </div>
 </section>
 
 <footer>© 2025 Amna Boughamoura — All rights reserved</footer>
