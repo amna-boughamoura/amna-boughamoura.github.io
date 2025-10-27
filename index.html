@@ -198,62 +198,79 @@ footer{
 </head>
 <body>
 
-<!-- ===== HERO ===== -->
-<header id="hero" style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;">
-  <!-- moving background -->
+<!-- ===== HERO =====-->
+  <header id="hero" style="position:relative;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;margin:0;">
+  <!-- GIF background -->
   <div style="
-       position:absolute;inset:0;z-index:-2;
-       background:url('https://media3.giphy.com/media/lbcLMX9B6sTsGjUmS3/giphy.gif') center/cover no-repeat;">
-  </div>
-  <!-- darker overlay so the text pops -->
-  <div style="
-       position:absolute;inset:0;z-index:-1;
-       background:linear-gradient(180deg,rgba(8,15,40,0.9) 0%,rgba(8,15,40,0.7) 40%,rgba(255,255,255,0.9) 85%,#fff 100%);">
+    position:absolute;
+    inset:0;
+    background:url('https://media3.giphy.com/media/lbcLMX9B6sTsGjUmS3/giphy.gif') center/cover no-repeat;
+    filter:brightness(0.45) contrast(1.15) saturate(1.1);
+    z-index:-2;">
   </div>
 
-  <div style="max-width:1100px;padding:0 24px;">
-    <img src="PROFPFP.jpg" alt="Amna Boughamoura"
-         style="width:230px;height:230px;border-radius:50%;border:5px solid #fff;
-                object-fit:cover;margin-bottom:40px;box-shadow:0 6px 25px rgba(0,0,0,.4);" />
-    <h1 style="font-family:'Playfair Display',serif;font-size:96px;margin:10px 0 20px;
-               color:#fff;text-shadow:0 8px 35px rgba(0,0,0,.8);">
-      Amna Boughamoura
-    </h1>
-    <p style="font-size:38px;font-weight:700;color:#e8f0ff;
-              margin:0 0 32px;text-shadow:0 4px 22px rgba(0,0,0,.6);">
-      ICT Student · IoT &amp; AI Developer
-    </p>
-    <p style="max-width:880px;margin:0 auto 40px;font-size:22px;line-height:1.8;
-              color:#0f1a35;background:rgba(255,255,255,.7);
-              padding:18px 26px;border-radius:20px;backdrop-filter:blur(6px);
-              box-shadow:0 2px 20px rgba(0,0,0,.05);">
-      ICT student specializing in IoT Networks at ISIMM. I build intelligent systems that merge sensors,
-      embedded platforms, and AI for real-world impact. Ranked 1st at ISIMM and 8th in Tunisia (IEEEXtreme 17). 
-      IEEE Smart Sustainability Startup winner; WIE Vice Chair empowering women in tech.
-    </p>
-    <div>
-      <a href="Amna_Boughamoura_CV.pdf" download
-         style="display:inline-block;margin:8px 12px;padding:16px 34px;
-                border-radius:14px;font-weight:800;color:#fff;font-size:18px;
-                text-decoration:none;background:linear-gradient(90deg,#1d4ed8,#60a5fa);">
-         ⬇ My CV
-      </a>
-      <a href="https://github.com/amna-boughamoura" target="_blank"
-         style="display:inline-block;margin:8px 12px;padding:16px 34px;
-                border-radius:14px;font-weight:800;color:#fff;font-size:18px;
-                text-decoration:none;background:linear-gradient(90deg,#1d4ed8,#60a5fa);">
-         💻 GitHub
-      </a>
-      <a href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank"
-         style="display:inline-block;margin:8px 12px;padding:16px 34px;
-                border-radius:14px;font-weight:800;color:#fff;font-size:18px;
-                text-decoration:none;background:linear-gradient(90deg,#1d4ed8,#60a5fa);">
-         🔗 LinkedIn
-      </a>
-    </div>
+  <!-- Dark overlay + white fade (starts lower) -->
+  <div style="
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,
+      rgba(5,10,30,0.95) 0%,
+      rgba(5,10,30,0.85) 55%,
+      rgba(255,255,255,0.92) 90%,
+      #fff 100%);
+    z-index:-1;">
+  </div>
+
+  <!-- Profile image -->
+  <img src="PROFPFP.jpg" alt="Amna Boughamoura"
+       style="width:210px;height:210px;border-radius:50%;border:5px solid #fff;
+              object-fit:cover;margin-bottom:45px;box-shadow:0 10px 35px rgba(0,0,0,0.5);">
+
+  <!-- Name -->
+  <h1 style="font-family:'Playfair Display',serif;font-size:96px;line-height:1.05;
+             color:#fff;margin:0 0 16px;text-shadow:0 8px 25px rgba(0,0,0,0.9);">
+    Amna Boughamoura
+  </h1>
+
+  <!-- Role -->
+  <p style="font-size:36px;font-weight:700;color:#eaf0ff;margin:0 0 28px;
+            text-shadow:0 6px 20px rgba(0,0,0,0.7);">
+    ICT Student · IoT &amp; AI Developer
+  </p>
+
+  <!-- Intro paragraph -->
+  <div style="max-width:880px;margin:0 auto 32px;font-size:22px;line-height:1.8;
+              color:#0a132e;background:rgba(255,255,255,0.75);padding:22px 28px;
+              border-radius:18px;backdrop-filter:blur(6px);
+              box-shadow:0 3px 18px rgba(0,0,0,0.15);">
+    ICT student specializing in IoT Networks at ISIMM. I build intelligent systems that merge sensors,
+    embedded platforms, and AI for real-world impact. Ranked 1st at ISIMM and 8th in Tunisia (IEEEXtreme 17).
+    IEEE Smart Sustainability Startup winner; WIE Vice Chair empowering women in tech.
+  </div>
+
+  <!-- Buttons -->
+  <div style="margin-bottom:40px;">
+    <a href="Amna_Boughamoura_CV.pdf" download
+       style="display:inline-block;margin:8px 12px;padding:16px 34px;border-radius:14px;
+              font-weight:800;color:#fff;font-size:18px;text-decoration:none;
+              background:linear-gradient(90deg,#1e40af,#3b82f6);box-shadow:0 4px 20px rgba(0,0,0,0.25);">
+       ⬇ My CV
+    </a>
+    <a href="https://github.com/amna-boughamoura" target="_blank"
+       style="display:inline-block;margin:8px 12px;padding:16px 34px;border-radius:14px;
+              font-weight:800;color:#fff;font-size:18px;text-decoration:none;
+              background:linear-gradient(90deg,#1e40af,#3b82f6);box-shadow:0 4px 20px rgba(0,0,0,0.25);">
+       💻 GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank"
+       style="display:inline-block;margin:8px 12px;padding:16px 34px;border-radius:14px;
+              font-weight:800;color:#fff;font-size:18px;text-decoration:none;
+              background:linear-gradient(90deg,#1e40af,#3b82f6);box-shadow:0 4px 20px rgba(0,0,0,0.25);">
+       🔗 LinkedIn
+    </a>
   </div>
 </header>
-er>
+
 
 <!-- ===== EDUCATION ===== -->
 <section class="section">
