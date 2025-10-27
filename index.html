@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Amna Boughamoura | IoT & AI Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
 <style>
 :root{
   --blue1:#1d4ed8;
@@ -14,6 +15,7 @@
 }
 
 /* ===== GLOBAL ===== */
+*{box-sizing:border-box}
 body{
   margin:0;
   font-family:"Open Sans",sans-serif;
@@ -21,83 +23,101 @@ body{
   background:#fff;
   line-height:1.8;
 }
-h2{font-family:"Playfair Display",serif;font-size:38px;color:var(--blue1);margin-bottom:20px;}
-p,li{font-size:20px;}
-ul{padding-left:24px;}
+h2{
+  font-family:"Playfair Display",serif;
+  font-size:38px;
+  color:var(--blue1);
+  margin-bottom:20px;
+}
+p,li{font-size:20px}
+ul{padding-left:24px}
 
-/* ===== HERO ===== */
-header#hero{
+/* ===== HERO (CLEAN + RESPONSIVE) ===== */
+#hero{
   position:relative;
-  height:100vh;
+  min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   overflow:hidden;
+  padding:0;           /* we'll control spacing with inner container */
 }
 #hero::before{
   content:"";
-  position:absolute;
-  inset:0;
+  position:absolute; inset:0;
   background:url("https://media3.giphy.com/media/lbcLMX9B6sTsGjUmS3/giphy.gif") center/cover no-repeat;
+  filter:brightness(.55) contrast(1.1) saturate(1.05);
   z-index:-2;
 }
 #hero::after{
   content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg, rgba(10,20,60,0.85) 0%, rgba(10,20,60,0.7) 40%, rgba(255,255,255,0.9) 75%, #fff 100%);
+  position:absolute; inset:0;
+  /* darker top, white fade starts late to keep text on dark area */
+  background:linear-gradient(180deg,
+    rgba(6,12,32,.92) 0%,
+    rgba(6,12,32,.82) 52%,
+    rgba(255,255,255,.90) 88%,
+    #fff 100%);
   z-index:-1;
 }
 .hero-inner{
-  max-width:1100px;
-  padding:0 24px;
+  width:100%;
+  max-width:950px;
+  padding:40px 24px;
+  margin:0 auto;
 }
 .hero-pic{
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  border:5px solid #fff;
+  width:170px;
+  height:210px;
   object-fit:cover;
-  margin-bottom:20px;
+  border-radius:24px;         /* rounded rectangle (original shape) */
+  border:4px solid #fff;
+  box-shadow:0 6px 22px rgba(0,0,0,.4);
+  margin:0 auto 24px;
 }
 .hero-name{
   font-family:"Playfair Display",serif;
-  font-size:88px;
-  line-height:1.05;
-  margin:8px 0 12px;
+  /* smaller, responsive size */
+  font-size:clamp(38px,6vw,58px);
+  line-height:1.1;
+  margin:10px 0 12px;
   color:#fff;
-  text-shadow:0 6px 30px rgba(0,0,0,0.8);
+  text-shadow:0 6px 24px rgba(0,0,0,.85);
 }
 .hero-role{
-  font-size:36px;
+  font-size:clamp(16px,2.4vw,24px);
   font-weight:700;
-  color:#e6f0ff;
-  margin-bottom:20px;
-  text-shadow:0 3px 18px rgba(0,0,0,0.6);
+  color:#eaf1ff;
+  margin:0 0 20px;
+  text-shadow:0 4px 16px rgba(0,0,0,.6);
 }
 .hero-intro{
-  font-size:22px;
-  background:rgba(255,255,255,0.85);
-  padding:14px 20px;
-  border-radius:10px;
-  max-width:850px;
-  margin:0 auto 30px;
-  color:#0f1a35;
+  max-width:760px;
+  font-size:clamp(14px,1.9vw,18px);
+  line-height:1.7;
+  margin:0 auto 24px;
+  color:#0f1733;
+  background:rgba(255,255,255,.75);
+  padding:14px 22px;
+  border-radius:16px;
+  backdrop-filter:blur(6px);
+  box-shadow:0 2px 15px rgba(0,0,0,.08);
 }
 .btn{
   display:inline-block;
-  margin:8px 10px;
-  padding:16px 30px;
+  margin:6px 10px;
+  padding:12px 26px;
   border-radius:12px;
-  font-weight:800;
+  font-weight:700;
   color:#fff;
   text-decoration:none;
   background:linear-gradient(90deg,var(--blue1),var(--blue2));
-  font-size:18px;
+  font-size:clamp(14px,1.5vw,16px);
+  box-shadow:0 3px 12px rgba(0,0,0,.25);
   transition:transform .25s ease;
 }
-.btn:hover{transform:scale(1.05);}
+.btn:hover{transform:scale(1.04)}
 
 /* ===== SECTIONS ===== */
 .section{
@@ -111,40 +131,27 @@ header#hero{
   gap:40px;
   align-items:center;
 }
-.grid-2.reverse{
-  grid-template-columns:1fr 1.2fr;
-}
+.grid-2.reverse{grid-template-columns:1fr 1.2fr}
 @media(max-width:960px){
-  .grid-2,.grid-2.reverse{grid-template-columns:1fr;}
+  .grid-2,.grid-2.reverse{grid-template-columns:1fr}
 }
-.figure{
-  width:100%;
-  border-radius:12px;
-}
+.figure{width:100%; border-radius:12px}
 
 /* ===== LOGOS ===== */
 .logo-img{
   display:block;
   margin:14px auto 18px;
-  max-width:240px;
-  width:100%;
+  max-width:240px; width:100%;
   transition:transform .3s ease;
 }
-.logo-img:hover{transform:scale(1.06);}
+.logo-img:hover{transform:scale(1.06)}
 
 /* ===== CONTACT ===== */
 .contact-row{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:16px;
-  flex-wrap:wrap;
-  margin-top:20px;
+  display:flex; justify-content:center; align-items:center;
+  gap:16px; flex-wrap:wrap; margin-top:20px;
 }
-.contact-row .btn{
-  border-radius:999px;
-  padding:14px 28px;
-}
+.contact-row .btn{border-radius:999px}
 
 /* ===== FOOTER ===== */
 footer{
@@ -154,169 +161,30 @@ footer{
   color:#fff;
   font-size:17px;
 }
-  <style id="hero-fix-final">
-  #hero {
-    min-height: 100vh !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    overflow: hidden !important;
-  }
-
-  #hero::before {
-    filter: brightness(0.55) contrast(1.1) !important;
-  }
-
-  #hero::after {
-    background: linear-gradient(180deg,
-      rgba(6, 12, 32, 0.95) 0%,
-      rgba(6, 12, 32, 0.85) 50%,
-      rgba(255, 255, 255, 0.9) 88%,
-      #fff 100%) !important;
-  }
-
-  #hero .hero-inner {
-    width: 100% !important;
-    max-width: 950px !important;
-    padding: 40px 24px !important;
-    margin: 0 auto !important;
-  }
-
-  /* Rounded-rectangle profile pic (original look) */
-  #hero .hero-pic {
-    width: 180px !important;
-    height: 220px !important;
-    border-radius: 25px !important;
-    object-fit: cover !important;
-    margin-bottom: 24px !important;
-    border: 4px solid #fff !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45) !important;
-  }
-
-  /* Smaller font sizes, balanced spacing */
-  #hero .hero-name,
-  #hero h1 {
-    font-family: "Playfair Display", serif !important;
-    font-size: clamp(38px, 5vw, 58px) !important;
-    line-height: 1.1 !important;
-    margin: 10px 0 12px !important;
-    color: #fff !important;
-    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.8) !important;
-  }
-
-  #hero .hero-role {
-    font-size: clamp(16px, 2.5vw, 24px) !important;
-    font-weight: 700 !important;
-    color: #eaf1ff !important;
-    margin: 0 0 20px !important;
-    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.6) !important;
-  }
-
-  #hero .hero-intro {
-    max-width: 750px !important;
-    font-size: clamp(14px, 1.9vw, 18px) !important;
-    line-height: 1.7 !important;
-    margin: 0 auto 25px !important;
-    color: #0f1733 !important;
-    background: rgba(255, 255, 255, 0.75) !important;
-    padding: 14px 22px !important;
-    border-radius: 16px !important;
-    backdrop-filter: blur(6px) !important;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08) !important;
-  }
-
-  #hero .btn {
-    font-size: clamp(14px, 1.5vw, 16px) !important;
-    padding: 10px 22px !important;
-    border-radius: 12px !important;
-    margin: 6px 10px !important;
-    font-weight: 700 !important;
-    background: linear-gradient(90deg, #1e40af, #3b82f6) !important;
-    color: #fff !important;
-    text-decoration: none !important;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25) !important;
-  }
 </style>
-
-
 </head>
 <body>
 
 <!-- ===== HERO =====-->
-<header id="hero" style="position:relative;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;margin:0;">
-  <!-- GIF background -->
-  <div style="
-    position:absolute;
-    inset:0;
-    background:url('https://media3.giphy.com/media/lbcLMX9B6sTsGjUmS3/giphy.gif') center/cover no-repeat;
-    filter:brightness(0.45) contrast(1.15) saturate(1.1);
-    z-index:-2;">
-  </div>
+<header id="hero">
+  <div class="hero-inner">
+    <img class="hero-pic" src="PROFPFP.jpg" alt="Amna Boughamoura">
+    <h1 class="hero-name">Amna Boughamoura</h1>
+    <p class="hero-role">ICT Student · IoT &amp; AI Developer</p>
 
-  <!-- Dark overlay + white fade -->
-  <div style="
-    position:absolute;
-    inset:0;
-    background:linear-gradient(180deg,
-      rgba(5,10,30,0.95) 0%,
-      rgba(5,10,30,0.85) 55%,
-      rgba(255,255,255,0.92) 90%,
-      #fff 100%);
-    z-index:-1;">
-  </div>
+    <p class="hero-intro">
+      ICT student specializing in IoT Networks at ISIMM. I build intelligent systems that merge sensors,
+      embedded platforms, and AI for real-world impact. Ranked 1st at ISIMM and 8th in Tunisia (IEEEXtreme 17).
+      IEEE Smart Sustainability Startup winner; WIE Vice Chair empowering women in tech.
+    </p>
 
-  <!-- Profile image (rounded rectangle) -->
-  <img src="PROFPFP.jpg" alt="Amna Boughamoura"
-       style="width:170px;height:210px;border-radius:25px;border:4px solid #fff;
-              object-fit:cover;margin-bottom:35px;box-shadow:0 6px 22px rgba(0,0,0,0.4);">
-
-  <!-- Name -->
-  <h1 style="font-family:'Playfair Display',serif;font-size:60px;line-height:1.05;
-             color:#fff;margin:0 0 12px;text-shadow:0 6px 20px rgba(0,0,0,0.9);">
-    Amna Boughamoura
-  </h1>
-
-  <!-- Role -->
-  <p style="font-size:22px;font-weight:700;color:#eaf0ff;margin:0 0 22px;
-            text-shadow:0 4px 14px rgba(0,0,0,0.7);">
-    ICT Student · IoT &amp; AI Developer
-  </p>
-
-  <!-- Intro paragraph -->
-  <div style="max-width:760px;margin:0 auto 24px;font-size:17px;line-height:1.7;
-              color:#0a132e;background:rgba(255,255,255,0.75);padding:18px 24px;
-              border-radius:14px;backdrop-filter:blur(6px);
-              box-shadow:0 2px 15px rgba(0,0,0,0.1);">
-    ICT student specializing in IoT Networks at ISIMM. I build intelligent systems that merge sensors,
-    embedded platforms, and AI for real-world impact. Ranked 1st at ISIMM and 8th in Tunisia (IEEEXtreme 17).
-    IEEE Smart Sustainability Startup winner; WIE Vice Chair empowering women in tech.
-  </div>
-
-  <!-- Buttons -->
-  <div style="margin-bottom:30px;">
-    <a href="Amna_Boughamoura_CV.pdf" download
-       style="display:inline-block;margin:6px 10px;padding:12px 26px;border-radius:12px;
-              font-weight:700;color:#fff;font-size:15px;text-decoration:none;
-              background:linear-gradient(90deg,#1e40af,#3b82f6);box-shadow:0 3px 12px rgba(0,0,0,0.25);">
-       ⬇ My CV
-    </a>
-    <a href="https://github.com/amna-boughamoura" target="_blank"
-       style="display:inline-block;margin:6px 10px;padding:12px 26px;border-radius:12px;
-              font-weight:700;color:#fff;font-size:15px;text-decoration:none;
-              background:linear-gradient(90deg,#1e40af,#3b82f6);box-shadow:0 3px 12px rgba(0,0,0,0.25);">
-       💻 GitHub
-    </a>
-    <a href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank"
-       style="display:inline-block;margin:6px 10px;padding:12px 26px;border-radius:12px;
-              font-weight:700;color:#fff;font-size:15px;text-decoration:none;
-              background:linear-gradient(90deg,#1e40af,#3b82f6);box-shadow:0 3px 12px rgba(0,0,0,0.25);">
-       🔗 LinkedIn
-    </a>
+    <div>
+      <a class="btn" href="Amna_Boughamoura_CV.pdf" download>⬇ My CV</a>
+      <a class="btn" href="https://github.com/amna-boughamoura" target="_blank">💻 GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank">🔗 LinkedIn</a>
+    </div>
   </div>
 </header>
-
-
 
 <!-- ===== EDUCATION ===== -->
 <section class="section">
@@ -327,7 +195,7 @@ footer{
       <p>Focus on IoT networks, embedded systems, AI on the edge, computer vision, and distributed sensor software design.</p>
       <p><strong>Fatouma Bourguiba High School</strong> — Baccalaureate in Experimental Sciences (Honors), 2022.</p>
     </div>
-    <div><img class="figure" src="isimm.jpg" alt=""></div>
+    <div><img class="figure" src="isimm.jpg" alt="ISIMM"></div>
   </div>
 </section>
 
@@ -342,9 +210,9 @@ footer{
         <li>Privacy-first local inference, no cloud uploads.</li>
         <li>Interactive dashboard for tracking daily emotional wellbeing.</li>
       </ul>
-      <p><a class="btn" href="https://github.com/amna-boughamoura/daily-wellness-assistant">View on GitHub</a></p>
+      <p><a class="btn" href="https://github.com/amna-boughamoura/daily-wellness-assistant" target="_blank">View on GitHub</a></p>
     </div>
-    <div><img class="figure" src="FIG DESIGN WEBSITE.jpg" alt=""></div>
+    <div><img class="figure" src="FIG DESIGN WEBSITE.jpg" alt="Daily Wellness Assistant"></div>
   </div>
 </section>
 
@@ -357,30 +225,30 @@ footer{
         <li>Integrated temperature, humidity, light, and soil moisture sensors.</li>
         <li>Energy-aware scheduling and MQTT/REST connectivity.</li>
       </ul>
-      <p><a class="btn" href="https://github.com/amna-boughamoura/intelligent-home-automation">View on GitHub</a></p>
+      <p><a class="btn" href="https://github.com/amna-boughamoura/intelligent-home-automation" target="_blank">View on GitHub</a></p>
     </div>
-    <div><img class="figure" src="smart home.jpg"></div>
+    <div><img class="figure" src="smart home.jpg" alt="Home Automation"></div>
   </div>
 </section>
 
 <!-- ===== SAHNI ===== -->
 <section class="section">
   <h2>Sahni — Smart Sustainability Startup</h2>
-  <img class="logo-img" src="sahni fruits.jpg" alt="">
+  <img class="logo-img" src="sahni fruits.jpg" alt="Sahni Logo">
   <p>Winner of the <strong>IEEE Smart Sustainability Startup</strong> challenge. Co-founded <em>Sahni</em>, an IoT solution for sustainable agriculture and irrigation efficiency.</p>
 </section>
 
 <!-- ===== IEEE ISIMM ===== -->
 <section class="section">
   <h2>IEEE ISIMM Student Branch</h2>
-  <img class="logo-img" src="IEEE ISIMM.jpg" alt="">
+  <img class="logo-img" src="IEEE ISIMM.jpg" alt="IEEE ISIMM Logo">
   <p>Organizer and mentor for coding/AI workshops (100+ participants). Supported technical innovation and student community engagement.</p>
 </section>
 
 <!-- ===== WIE ===== -->
 <section class="section">
   <h2>IEEE Women in Engineering (WIE)</h2>
-  <img class="logo-img" src="wie123.jpg" alt="">
+  <img class="logo-img" src="wie123.jpg" alt="WIE Logo">
   <p><strong>Vice Chair (2023)</strong> — Led initiatives to promote women’s empowerment in tech, health awareness, and innovation.</p>
 </section>
 
@@ -395,7 +263,5 @@ footer{
 </section>
 
 <footer>© 2025 Amna Boughamoura — All rights reserved</footer>
-
 </body>
 </html>
-
