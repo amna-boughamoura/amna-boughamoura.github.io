@@ -20,14 +20,14 @@ body{
   margin:0;
   font-family:"Open Sans",sans-serif;
   color:var(--text);
-  background:#fff !important; /* force white */
+  background:#fff !important;
   line-height:1.75;
 }
 
-/* HERO (full-page GIF, readable center text) */
+/* HERO (full GIF background) */
 header#hero{
   position:relative;
-  height:100vh;             /* full first page */
+  height:100vh;
   display:flex; align-items:center; justify-content:center;
   text-align:center; overflow:hidden;
 }
@@ -38,12 +38,8 @@ header#hero{
   z-index:-2;
 }
 #hero::after{
-  /* soft white wash so text is crisp; fades to white page */
   content:""; position:absolute; inset:0;
-  background:linear-gradient(180deg,
-             rgba(255,255,255,.70) 0%,
-             rgba(255,255,255,.85) 55%,
-             #ffffff 100%);
+  background:linear-gradient(180deg,rgba(255,255,255,.7) 0%,rgba(255,255,255,.85) 55%,#fff 100%);
   z-index:-1;
 }
 .hero-inner{max-width:960px; padding:0 20px}
@@ -76,7 +72,7 @@ header#hero{
 ul{padding-left:22px}
 .section img.figure{width:100%; border-radius:10px; margin-top:10px}
 
-/* GIF BANDS BETWEEN SECTIONS */
+/* GIF BANDS */
 .band{
   position:relative; height:230px;
   background-size:cover; background-position:center;
@@ -86,11 +82,13 @@ ul{padding-left:22px}
   background:linear-gradient(180deg, rgba(255,255,255,0) 0%, #fff 95%);
 }
 
-/* WIE LOGO (smaller & centered) */
-.wie-logo{
-  display:block; margin:14px auto 10px;
+/* LOGOS */
+.logo-img{
+  display:block; margin:14px auto 20px;
   max-width:220px; width:100%; height:auto;
+  transition:transform .3s ease;
 }
+.logo-img:hover{transform:scale(1.05)}
 
 /* Skills chips */
 .chips{display:flex; flex-wrap:wrap; gap:10px}
@@ -100,7 +98,7 @@ ul{padding-left:22px}
   font-weight:700; font-size:13px;
 }
 
-/* Contact row (one line) */
+/* Contact row */
 .contact-row{
   display:flex; justify-content:center; align-items:center;
   gap:14px; flex-wrap:wrap; margin-top:12px;
@@ -181,7 +179,7 @@ footer{
   <p><a class="btn" href="https://github.com/amna-boughamoura/intelligent-home-automation" target="_blank">View on GitHub</a></p>
 </section>
 
-<!-- TECH PATHWAYS (your banner) -->
+<!-- TECH PATHWAYS -->
 <div class="band" style="background:#fff url('mena tech.png') center/contain no-repeat;"></div>
 
 <section class="section">
@@ -189,9 +187,10 @@ footer{
   <p>Selected participant in a regional mentorship and innovation program empowering young women in STEM across the MENA region. Worked on sustainability and digital transformation challenges with international mentors and peers.</p>
 </section>
 
-<!-- SAHNI STARTUP -->
+<!-- SAHNI -->
 <section class="section">
   <h2>Sahni — Smart Sustainability Startup</h2>
+  <img src="sahni fruits.jpg" alt="Sahni Logo" class="logo-img" />
   <p>Winner of the <strong>IEEE Smart Sustainability Startup</strong> challenge. Co-founded <em>Sahni</em>, an IoT solution for sustainable agriculture and smart irrigation.</p>
   <ul>
     <li>Designed soil moisture monitoring with automated watering to reduce waste.</li>
@@ -200,9 +199,10 @@ footer{
   </ul>
 </section>
 
-<!-- IEEE ISIMM SB -->
+<!-- IEEE ISIMM -->
 <section class="section">
   <h2>IEEE ISIMM Student Branch</h2>
+  <img src="IEEE ISIMM.jpg" alt="IEEE ISIMM Logo" class="logo-img" />
   <p>Active organizer and collaborator in the IEEE ISIMM Student Branch, combining innovation, leadership, and technical development for ICT students.</p>
   <ul>
     <li>Organized coding/AI workshops (100+ participants) and community events.</li>
@@ -214,7 +214,7 @@ footer{
 <!-- WIE -->
 <section class="section" id="wie">
   <h2>IEEE Women in Engineering (WIE)</h2>
-  <img src="wie123.jpg" alt="IEEE WIE Logo" class="wie-logo" />
+  <img src="wie123.jpg" alt="IEEE WIE Logo" class="logo-img" />
   <p><strong>Vice Chair (2023)</strong> — Led initiatives to promote women’s empowerment in tech, health awareness, and youth innovation.</p>
   <ul>
     <li><strong>WIE Heal 2.0:</strong> Breast-cancer awareness campaign with healthcare professionals (50+ attendees).</li>
@@ -245,7 +245,7 @@ footer{
   <p><strong>Languages:</strong> Arabic (Native) · English (Fluent) · French (Advanced) · Korean (Intermediate) · Japanese (Beginner) · Italian (Beginner) · Chinese (Beginner)</p>
 </section>
 
-<!-- CONTACT (one line) -->
+<!-- CONTACT -->
 <section class="section">
   <h2>Contact</h2>
   <div class="contact-row">
