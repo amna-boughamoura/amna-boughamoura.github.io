@@ -2,81 +2,138 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Amna Boughamoura | IoT & AI Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 <style>
 :root{
   --blue1:#3b82f6;
   --blue2:#60a5fa;
   --ink:#0a1e3f;
-  --text:#1f2937.
+  --text:#1f2937;
 }
-html{scroll-behavior:smooth}
+
+/* GLOBAL */
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:"Open Sans",sans-serif;
   color:var(--text);
-  background:#fff !important;
-  line-height:1.7;
+  background:#fff !important; /* force white */
+  line-height:1.75;
 }
-#hero{
+
+/* HERO (full-page GIF, readable center text) */
+header#hero{
   position:relative;
-  height:100vh;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;overflow:hidden;
+  height:100vh;             /* full first page */
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; overflow:hidden;
 }
 #hero::before{
-  content:"";position:absolute;inset:0;
-  background:url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGlmZTh4MDQ4aHFwcGVmbHY4dXplaGY2NmNlcmtlMHBkZDVyc3c0OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lbcLMX9B6sTsGjUmS3/giphy.gif") center/cover no-repeat;
+  content:""; position:absolute; inset:0;
+  background:url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGlmZTh4MDQ4aHFwcGVmbHY4dXplaGY2NmNlcmtlMHBkZDVyc3c0OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lbcLMX9B6sTsGjUmS3/giphy.gif")
+            center/cover no-repeat;
   z-index:-2;
 }
 #hero::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(255,255,255,.68) 0%,rgba(255,255,255,.82) 55%,#fff 100%);
+  /* soft white wash so text is crisp; fades to white page */
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,
+             rgba(255,255,255,.70) 0%,
+             rgba(255,255,255,.85) 55%,
+             #ffffff 100%);
   z-index:-1;
 }
-.hero-inner{max-width:960px;padding:0 20px}
+.hero-inner{max-width:960px; padding:0 20px}
 .hero-pic{
-  width:180px;height:180px;border-radius:50%;
-  border:5px solid #fff;object-fit:cover;margin-bottom:18px
+  width:180px; height:180px; border-radius:50%;
+  border:5px solid #fff; object-fit:cover; margin-bottom:18px;
 }
-.hero-name{font-family:"Playfair Display",serif;font-size:72px;line-height:1.05;margin:6px 0 8px;color:var(--ink)}
-.hero-role{font-size:30px;font-weight:600;margin:0 0 16px;color:var(--blue1)}
-.hero-intro{max-width:760px;margin:0 auto 22px;font-size:18px}
+.hero-name{
+  font-family:"Playfair Display",serif;
+  font-size:72px; line-height:1.05; margin:6px 0 8px; color:var(--ink);
+}
+.hero-role{font-size:30px; font-weight:600; margin:0 0 16px; color:var(--blue1)}
+.hero-intro{max-width:780px; margin:0 auto 22px; font-size:18px}
 .btn{
-  display:inline-block;
+  display:inline-block; margin:6px 8px; padding:12px 22px;
+  border-radius:8px; font-weight:700; color:#fff; text-decoration:none;
   background:linear-gradient(90deg,var(--blue1),var(--blue2));
-  color:#fff;text-decoration:none;font-weight:700;
-  padding:12px 22px;border-radius:8px;margin:6px 8px;
   transition:transform .25s ease, filter .25s ease;
 }
-.btn:hover{transform:translateY(-2px);filter:saturate(1.1)}
-.section{max-width:980px;margin:90px auto;padding:0 20px}
-.section h2{font-family:"Playfair Display",serif;font-size:32px;margin:0 0 12px;color:var(--blue1);border-bottom:2px solid var(--blue2);padding-bottom:6px}
-.band{position:relative;height:230px;background-size:cover;background-position:center;}
-.band::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:150px;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,#fff 95%)}
-.wie-logo{display:block;margin:14px auto 6px;max-width:220px;width:100%;height:auto;}
-.chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{background:linear-gradient(90deg,var(--blue1),var(--blue2));color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px}
-.contact-row{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;margin-top:12px}
-.contact-row a{text-decoration:none}
-.contact-row .btn{border-radius:999px;padding:10px 18px}
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
-.reveal.show{opacity:1;transform:translateY(0)}
-footer{text-align:center;padding:26px;background:linear-gradient(90deg,var(--blue1),var(--blue2));color:#fff;margin-top:80px}
-@media (max-width:680px){.hero-name{font-size:48px}.hero-role{font-size:22px}}
+.btn:hover{transform:translateY(-2px); filter:saturate(1.06)}
+
+/* SECTIONS */
+.section{max-width:980px; margin:90px auto; padding:0 20px}
+.section h2{
+  font-family:"Playfair Display",serif;
+  font-size:32px; margin:0 0 14px; color:var(--blue1);
+  border-bottom:2px solid var(--blue2); padding-bottom:6px;
+}
+.section p, .section li{font-size:18px}
+ul{padding-left:22px}
+.section img.figure{width:100%; border-radius:10px; margin-top:10px}
+
+/* GIF BANDS BETWEEN SECTIONS */
+.band{
+  position:relative; height:230px;
+  background-size:cover; background-position:center;
+}
+.band::after{
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:150px;
+  background:linear-gradient(180deg, rgba(255,255,255,0) 0%, #fff 95%);
+}
+
+/* WIE LOGO (smaller & centered) */
+.wie-logo{
+  display:block; margin:14px auto 10px;
+  max-width:220px; width:100%; height:auto;
+}
+
+/* Skills chips */
+.chips{display:flex; flex-wrap:wrap; gap:10px}
+.chip{
+  background:linear-gradient(90deg,var(--blue1),var(--blue2));
+  color:#fff; padding:8px 14px; border-radius:999px;
+  font-weight:700; font-size:13px;
+}
+
+/* Contact row (one line) */
+.contact-row{
+  display:flex; justify-content:center; align-items:center;
+  gap:14px; flex-wrap:wrap; margin-top:12px;
+}
+.contact-row .btn{border-radius:999px; padding:10px 18px}
+
+/* Footer */
+footer{
+  text-align:center; padding:26px;
+  background:linear-gradient(90deg,var(--blue1),var(--blue2));
+  color:#fff; margin-top:80px;
+}
+
+/* Mobile */
+@media (max-width:680px){
+  .hero-name{font-size:48px}
+  .hero-role{font-size:22px}
+}
 </style>
 </head>
 <body>
 
+<!-- HERO -->
 <header id="hero">
   <div class="hero-inner">
     <img class="hero-pic" src="PROFPFP.jpg" alt="Amna Boughamoura">
     <h1 class="hero-name">Amna Boughamoura</h1>
     <p class="hero-role">ICT Student · IoT &amp; AI Developer</p>
-    <p class="hero-intro">ICT student specializing in IoT Networks at ISIMM. Passionate about merging IoT, AI, and computer vision to create impactful, sustainable, and human-centered innovations. Ranked 1st at ISIMM, 8th nationally at IEEEXtreme 17, and winner of the IEEE Smart Sustainability Startup Challenge.</p>
+    <p class="hero-intro">
+      ICT student specializing in IoT Networks at ISIMM. I build intelligent systems that merge connected sensors,
+      embedded platforms, and AI/computer vision. Ranked 1st at ISIMM and 8th nationally in IEEEXtreme 17.
+      IEEE Smart Sustainability Startup Challenge winner; WIE Vice Chair empowering women in tech.
+    </p>
     <div>
       <a class="btn" href="Amna_Boughamoura_CV.pdf" target="_blank">My CV</a>
       <a class="btn" href="https://github.com/amna-boughamoura" target="_blank">GitHub</a>
@@ -85,90 +142,101 @@ footer{text-align:center;padding:26px;background:linear-gradient(90deg,var(--blu
   </div>
 </header>
 
-<section class="section reveal">
+<!-- ACADEMIC -->
+<section class="section">
   <h2>Academic Foundation</h2>
-  <p><strong>Higher Institute of Informatics & Mathematics of Monastir (ISIMM)</strong> — License in ICT (IoT Networks), 2022–Present.</p>
-  <p>Coursework emphasizes IoT networks, embedded systems, AI for edge computing, and software design for distributed sensors. Developed numerous cross-disciplinary projects integrating embedded boards and AI models.</p>
+  <p><strong>Higher Institute of Informatics &amp; Mathematics of Monastir (ISIMM)</strong> — License in ICT (IoT Networks), 2022–Present.</p>
+  <p>Coursework emphasizes IoT networks, embedded systems, AI on the edge, computer vision, and distributed sensor software design. Built multiple cross-discipline projects integrating microcontrollers and ML models.</p>
   <p><strong>Fatouma Bourguiba High School</strong> — Baccalaureate in Experimental Sciences (Honors), 2022.</p>
 </section>
 
+<!-- DWA BAND -->
 <div class="band" style="background-image:url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2NodGZucGt5eWRyZnlibjZ0aHZ4Nmx3aXVwdmt3enJ2dmk5dG5mbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sRFEa8lbeC7zbcIZZR/giphy.gif');"></div>
 
-<section class="section reveal">
+<!-- DWA -->
+<section class="section">
   <h2>Daily Wellness Assistant</h2>
-  <p>Created an AI-powered system that detects facial emotions in real-time using <strong>DeepFace</strong> and <strong>OpenCV</strong>, allowing personalized daily mental health insights.</p>
+  <p>AI-powered assistant that detects facial emotions in real time using <strong>DeepFace</strong> + <strong>OpenCV</strong>, delivering privacy-first local inference and personalized feedback for wellbeing.</p>
   <ul>
-    <li>Trained CNN and FER models on a custom dataset achieving 92% accuracy.</li>
-    <li>Implemented edge-based emotion recognition to ensure data privacy.</li>
-    <li>Designed a responsive user interface for emotion tracking and analysis.</li>
-    <li>Used Python, TensorFlow, and Flask for the backend; HTML/CSS for visualization.</li>
+    <li>Trained CNN/FER models (TensorFlow) and reached strong accuracy on validation data.</li>
+    <li>Edge execution (local webcam) to protect user data; no cloud uploads.</li>
+    <li>Responsive interface for session summaries and daily mood tracking.</li>
+    <li>Stack: Python, TensorFlow, DeepFace, OpenCV, Flask, HTML/CSS.</li>
   </ul>
   <p><a class="btn" href="https://github.com/amna-boughamoura/daily-wellness-assistant" target="_blank">View on GitHub</a></p>
 </section>
 
+<!-- HOME AUTOMATION BAND -->
 <div class="band" style="background-image:url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmRhOGN2cnZmcnZmdWg3YWhmaTcyZTlpeG40bWdod3lnczEwaXV2OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oFzmrqRPhYnFg9oGs/giphy.gif');"></div>
 
-<section class="section reveal">
+<!-- HOME AUTOMATION -->
+<section class="section">
   <h2>Intelligent Home Automation System</h2>
-  <p>Designed a full-scale IoT smart home prototype with integrated <strong>Arduino</strong>, <strong>ESP32</strong>, and <strong>IoT sensors</strong> to automate household functions.</p>
+  <p>Smart IoT ecosystem using <strong>Arduino</strong>, <strong>ESP32</strong>, and a network of sensors to automate lighting, irrigation, and indoor climate through rules and dashboards.</p>
   <ul>
-    <li>Implemented smart lighting, irrigation, and climate systems via mobile app.</li>
-    <li>Programmed energy-efficient rules using real-time sensor feedback.</li>
-    <li>Simulated multi-device connectivity through MQTT and REST APIs.</li>
-    <li>Created modular code supporting future integration with voice control.</li>
+    <li>Integrated temperature, humidity, light, and soil moisture sensors with actuators.</li>
+    <li>Energy-aware schedules and safety fallbacks; manual override via local UI.</li>
+    <li>Connectivity simulated with MQTT/REST; modular code ready for voice control.</li>
   </ul>
   <p><a class="btn" href="https://github.com/amna-boughamoura/intelligent-home-automation" target="_blank">View on GitHub</a></p>
 </section>
 
+<!-- TECH PATHWAYS (your banner) -->
 <div class="band" style="background:#fff url('mena tech.png') center/contain no-repeat;"></div>
-<section class="section reveal">
+
+<section class="section">
   <h2>Tech Pathways MENA Program</h2>
-  <p>Selected participant in a regional mentorship and innovation program aimed at empowering young women in STEM across the Middle East and North Africa. Developed prototypes for digital transformation and sustainability challenges under the guidance of international mentors.</p>
+  <p>Selected participant in a regional mentorship and innovation program empowering young women in STEM across the MENA region. Worked on sustainability and digital transformation challenges with international mentors and peers.</p>
 </section>
 
-<section class="section reveal">
-  <h2>Sahni – Smart Sustainability Startup</h2>
-  <p>Winner of the <strong>IEEE Smart Sustainability Challenge</strong>. Co-founded <em>Sahni</em>, an IoT-based solution aimed at sustainable agriculture and smart irrigation.</p>
+<!-- SAHNI STARTUP -->
+<section class="section">
+  <h2>Sahni — Smart Sustainability Startup</h2>
+  <p>Winner of the <strong>IEEE Smart Sustainability Startup</strong> challenge. Co-founded <em>Sahni</em>, an IoT solution for sustainable agriculture and smart irrigation.</p>
   <ul>
-    <li>Designed a connected system to monitor soil moisture and optimize water usage.</li>
-    <li>Presented project to IEEE Tunisia Section, earning top innovation award.</li>
-    <li>Led product design and sensor integration, improving water efficiency by 37%.</li>
+    <li>Designed soil moisture monitoring with automated watering to reduce waste.</li>
+    <li>Presented to IEEE Tunisia Section; awarded top innovation recognition.</li>
+    <li>Led product design and sensor integration, demonstrating measurable efficiency gains.</li>
   </ul>
 </section>
 
-<section class="section reveal">
+<!-- IEEE ISIMM SB -->
+<section class="section">
   <h2>IEEE ISIMM Student Branch</h2>
-  <p>Active member and organizer in the IEEE ISIMM Student Branch, collaborating on events that merge innovation, leadership, and technical development for ICT students.</p>
+  <p>Active organizer and collaborator in the IEEE ISIMM Student Branch, combining innovation, leadership, and technical development for ICT students.</p>
   <ul>
-    <li>Organized coding and AI workshops for 100+ participants.</li>
+    <li>Organized coding/AI workshops (100+ participants) and community events.</li>
     <li>Mentored new members on IoT fundamentals and robotics projects.</li>
-    <li>Contributed to event logistics and community management.</li>
+    <li>Supported event logistics, partnerships, and student engagement.</li>
   </ul>
 </section>
 
-<section class="section reveal">
+<!-- WIE -->
+<section class="section" id="wie">
   <h2>IEEE Women in Engineering (WIE)</h2>
   <img src="wie123.jpg" alt="IEEE WIE Logo" class="wie-logo" />
-  <p><strong>Vice Chair (2023)</strong> — Led awareness and innovation initiatives empowering women in tech and science.</p>
+  <p><strong>Vice Chair (2023)</strong> — Led initiatives to promote women’s empowerment in tech, health awareness, and youth innovation.</p>
   <ul>
-    <li>Organized <strong>WIE Heal 2.0</strong>: Breast-cancer awareness campaign with healthcare professionals.</li>
-    <li>Directed <strong>WIE Motivate</strong>: Leadership and life-skills workshops.</li>
-    <li>Hosted <strong>Care & Share</strong>: Community support program benefiting families in need.</li>
+    <li><strong>WIE Heal 2.0:</strong> Breast-cancer awareness campaign with healthcare professionals (50+ attendees).</li>
+    <li><strong>WIE Motivate:</strong> Leadership and life-skills workshops for students.</li>
+    <li><strong>Care &amp; Share:</strong> Community outreach supporting families and an orphanage.</li>
   </ul>
 </section>
 
-<section class="section reveal">
+<!-- CERTIFICATIONS -->
+<section class="section">
   <h2>Certifications</h2>
   <ul>
-    <li><strong>AI for Everyone</strong> – DeepLearning.AI (Coursera)</li>
-    <li><strong>Python Programming Essentials</strong> – University of Michigan</li>
-    <li><strong>Data Analysis with Pandas</strong> – Kaggle Micro-Course</li>
-    <li><strong>IoT Applications</strong> – IEEE Learn Program</li>
+    <li><strong>AI for Everyone</strong> — DeepLearning.AI (Coursera)</li>
+    <li><strong>Python Programming Essentials</strong> — University of Michigan</li>
+    <li><strong>Data Analysis with Pandas</strong> — Kaggle Micro-Course</li>
+    <li><strong>IoT Applications</strong> — IEEE Learning Program</li>
   </ul>
 </section>
 
-<section class="section reveal">
-  <h2>Skills & Languages</h2>
+<!-- SKILLS & LANGUAGES -->
+<section class="section">
+  <h2>Skills &amp; Languages</h2>
   <div class="chips" style="margin-bottom:12px">
     <span class="chip">Python</span><span class="chip">C</span><span class="chip">Arduino</span><span class="chip">ESP32</span>
     <span class="chip">Raspberry&nbsp;Pi</span><span class="chip">OpenCV</span><span class="chip">DeepFace</span>
@@ -177,7 +245,8 @@ footer{text-align:center;padding:26px;background:linear-gradient(90deg,var(--blu
   <p><strong>Languages:</strong> Arabic (Native) · English (Fluent) · French (Advanced) · Korean (Intermediate) · Japanese (Beginner) · Italian (Beginner) · Chinese (Beginner)</p>
 </section>
 
-<section class="section reveal">
+<!-- CONTACT (one line) -->
+<section class="section">
   <h2>Contact</h2>
   <div class="contact-row">
     <a class="btn" href="mailto:amna.boughamoura@gmail.com">📧 Email</a>
@@ -188,11 +257,5 @@ footer{text-align:center;padding:26px;background:linear-gradient(90deg,var(--blu
 
 <footer>© 2025 Amna Boughamoura — All rights reserved</footer>
 
-<script>
-const io=new IntersectionObserver((es,o)=>es.forEach(e=>{
-  if(e.isIntersecting){e.target.classList.add('show');o.unobserve(e.target)}
-}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
 </body>
 </html>
