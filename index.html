@@ -34,7 +34,7 @@ h2 {
 p, li { font-size: 20px; }
 ul { padding-left: 24px; }
 
-/* HERO SECTION */
+/* HERO */
 #hero {
   position: relative;
   height: 100vh;
@@ -51,7 +51,6 @@ ul { padding-left: 24px; }
   height: 100%;
   z-index: -2;
 }
-
 .hero-inner {
   width: 100%;
   max-width: 950px;
@@ -128,7 +127,7 @@ ul { padding-left: 24px; }
   60% { transform: translate(-50%, -6px); }
 }
 
-/* SECTIONS */
+/* SECTIONS + IMAGES */
 .section {
   max-width: 1200px;
   margin: 100px auto;
@@ -137,21 +136,14 @@ ul { padding-left: 24px; }
   transform: translateY(50px);
   transition: all 1s ease;
 }
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
+.section.visible { opacity: 1; transform: translateY(0); }
+.figure, .logo-img {
+  display: block;
+  margin: 20px auto;
+  border-radius: 12px;
+  max-width: 380px;
+  width: 100%;
 }
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
-.grid-2.reverse { grid-template-columns: 1fr 1.2fr; }
-@media(max-width:960px){
-  .grid-2, .grid-2.reverse { grid-template-columns:1fr; }
-}
-.figure { width: 100%; border-radius: 12px; }
 
 /* FOOTER */
 footer {
@@ -166,7 +158,6 @@ section, footer { position: relative; z-index: 1; }
 </head>
 <body>
 
-<!-- HERO -->
 <header id="hero">
   <div id="vanta-bg"></div>
   <div class="hero-inner">
@@ -187,71 +178,49 @@ section, footer { position: relative; z-index: 1; }
   <div class="scroll-down">⬇</div>
 </header>
 
-<!-- CONTENT -->
-<section class="section"><h2>Academic Foundation</h2>
-<p><strong>Higher Institute of Informatics & Mathematics of Monastir (ISIMM)</strong> — License in ICT (IoT Networks), 2022–Present.</p>
-<p>Focus on IoT networks, embedded systems, AI on the edge, computer vision, and distributed sensor software design.</p>
+<section class="section">
+  <h2>Academic Foundation</h2>
+  <p><strong>Higher Institute of Informatics & Mathematics of Monastir (ISIMM)</strong> — License in ICT (IoT Networks), 2022–Present.</p>
+  <p>Focus on IoT networks, embedded systems, AI on the edge, computer vision, and distributed sensor software design.</p>
+  <img src="isimm.jpg" alt="ISIMM" class="figure">
 </section>
 
-<section class="section"><h2>Technical Skills</h2>
-<ul>
-<li><strong>Languages:</strong> C/C++, Python, Java, SQL, HTML/CSS/JS.</li>
-<li><strong>Frameworks & Tools:</strong> TensorFlow, OpenCV, Flask, Arduino IDE, ESP32, GitHub, VS Code.</li>
-<li><strong>AI/IoT Focus:</strong> Deep Learning, Emotion Recognition, Computer Vision, Embedded AI.</li>
-</ul></section>
-
-<section class="section"><h2>Projects</h2>
-<h3>Daily Wellness Assistant</h3>
-<p>Emotion-based AI assistant detecting facial expressions with DeepFace + OpenCV. Integrates CNN models and dashboard analytics.</p>
-<h3>Intelligent Home Automation</h3>
-<p>IoT-based home automation using Arduino/ESP32 to monitor environmental data and automate comfort efficiently.</p>
+<section class="section">
+  <h2>Daily Wellness Assistant</h2>
+  <p>AI assistant detecting facial emotions with DeepFace + OpenCV, using CNN models on FER2013 dataset.</p>
+  <img src="FIG DESIGN WEBSITE.jpg" alt="Daily Wellness Assistant" class="figure">
 </section>
 
-<section class="section"><h2>Sahni — Smart Sustainability Startup</h2>
-<p><strong>Co-Founder & Team Leader</strong> — Winner of IEEE Smart Sustainability Startup Challenge.</p>
-<ul>
-<li>Developed an AI-driven sustainability solution optimizing agriculture and resource efficiency.</li>
-<li>Completed OSTX Entrepreneurship Program and led a multidisciplinary technical team.</li>
-</ul></section>
+<section class="section">
+  <h2>Intelligent Home Automation System</h2>
+  <p>IoT-based automation using Arduino and ESP32 to manage lighting, irrigation, and indoor comfort.</p>
+  <img src="smart home.jpg" alt="Smart Home" class="figure">
+</section>
 
-<section class="section"><h2>IEEE ISIMM Student Branch</h2>
-<ul>
-<li>Ranked 1st in ISIMM and 8th nationally at IEEEXtreme 17.</li>
-<li>Organized and mentored workshops on AI, programming, and innovation.</li>
-</ul></section>
+<section class="section">
+  <h2>Sahni — Smart Sustainability Startup</h2>
+  <img src="sahni fruits.jpg" alt="Sahni" class="logo-img">
+  <p>Co-founder of an AI-driven IoT sustainability solution optimizing agriculture efficiency and reducing waste.</p>
+</section>
 
-<section class="section"><h2>IEEE Women in Engineering (WIE)</h2>
-<ul>
-<li><strong>Vice Chair (2023):</strong> Led initiatives empowering women in tech, including charity and awareness campaigns.</li>
-<li>Organized design and wellness events, impacting over 100 participants.</li>
-</ul></section>
+<section class="section">
+  <h2>IEEE ISIMM Student Branch</h2>
+  <img src="IEEE ISIMM.jpg" alt="IEEE ISIMM" class="logo-img">
+  <p>Organizer and mentor for coding and AI workshops with over 100 participants; ranked top in Tunisia at IEEEXtreme 17.</p>
+</section>
 
-<section class="section"><h2>Certifications</h2>
-<ul>
-<li>Tech Pathways MENA Program — Advanced IoT & AI.</li>
-<li>IEEE Entrepreneurship OSTX Program.</li>
-<li>Google Digital Garage — Digital Skills.</li>
-</ul></section>
-
-<section class="section"><h2>Languages</h2>
-<ul>
-<li>Arabic — Native</li>
-<li>French — Fluent</li>
-<li>English — Advanced (B2/C1)</li>
-</ul></section>
-
-<section class="section"><h2>Contact</h2>
-<p>Email: amna.boughamoura@gmail.com | GitHub: amna-boughamoura | LinkedIn: amna-boughamoura-b947b024b</p>
+<section class="section">
+  <h2>IEEE Women in Engineering (WIE)</h2>
+  <img src="wie123.jpg" alt="WIE" class="logo-img">
+  <p>Vice Chair (2023) — led WIE Care & Share and WIE Heal campaigns to promote women’s empowerment in technology.</p>
 </section>
 
 <footer>© 2025 Amna Boughamoura — All rights reserved</footer>
 
-<!-- JS: VANTA + FADE EFFECT -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // VANTA Background
   if (typeof VANTA !== "undefined" && VANTA.GLOBE) {
     VANTA.GLOBE({
       el: "#vanta-bg",
@@ -268,7 +237,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // Fade-in animation
   const sections = document.querySelectorAll('.section');
   const fadeIn = () => {
     sections.forEach(sec => {
