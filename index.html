@@ -42,21 +42,20 @@ ul{padding-left:24px}
   text-align:center;
   overflow:hidden;
   padding:0;
+  background:#161324;
 }
-#hero::before{
-  content:"";
-  position:absolute; inset:0;
-  background:url("https://media3.giphy.com/media/lbcLMX9B6sTsGjUmS3/giphy.gif") center/cover no-repeat;
-  filter:brightness(.55) contrast(1.1) saturate(1.05);
+#vanta-bg{
+  position:absolute;
+  inset:0;
   z-index:-2;
 }
 #hero::after{
   content:"";
   position:absolute; inset:0;
   background:linear-gradient(180deg,
-    rgba(6,12,32,.92) 0%,
-    rgba(6,12,32,.82) 52%,
-    rgba(255,255,255,.90) 88%,
+    rgba(6,12,32,.85) 0%,
+    rgba(6,12,32,.75) 40%,
+    rgba(255,255,255,.95) 88%,
     #fff 100%);
   z-index:-1;
 }
@@ -65,6 +64,8 @@ ul{padding-left:24px}
   max-width:950px;
   padding:40px 24px;
   margin:0 auto;
+  position:relative;
+  z-index:2;
 }
 .hero-pic{
   width:200px;
@@ -110,7 +111,7 @@ ul{padding-left:24px}
   font-weight:700;
   color:#fff;
   text-decoration:none;
-background:linear-gradient(90deg, #0b1e56, #1e3a8a, #2563eb);
+  background:linear-gradient(90deg, #0b1e56, #1e3a8a, #2563eb);
   font-size:clamp(14px,1.5vw,16px);
   box-shadow:0 3px 12px rgba(0,0,0,.25);
   transition:transform .25s ease;
@@ -119,7 +120,6 @@ background:linear-gradient(90deg, #0b1e56, #1e3a8a, #2563eb);
   transform:scale(1.04);
   background:linear-gradient(90deg, #1e3a8a, #2563eb, #3b82f6);
 }
-
 
 /* ===== SECTIONS ===== */
 .section{
@@ -163,17 +163,17 @@ footer{
   color:#fff;
   font-size:17px;
 }
-  section, footer {
+section, footer {
   position: relative;
   z-index: 1;
 }
-
 </style>
 </head>
 <body>
 
 <!-- ===== HERO =====-->
 <header id="hero">
+  <div id="vanta-bg"></div>
   <div class="hero-inner">
     <img class="hero-pic" src="PROFPFP.jpg" alt="Amna Boughamoura">
     <h1 class="hero-name">Amna Boughamoura</h1>
@@ -186,7 +186,7 @@ footer{
     </p>
 
     <div>
-<a class="btn" href="Amna Boughamoura CV.pdf" download>⬇ My CV</a>
+      <a class="btn" href="Amna Boughamoura CV.pdf" download>⬇ My CV</a>
       <a class="btn" href="https://github.com/amna-boughamoura" target="_blank">💻 GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank">🔗 LinkedIn</a>
     </div>
@@ -202,8 +202,7 @@ footer{
       <p>Focus on IoT networks, embedded systems, AI on the edge, computer vision, and distributed sensor software design.</p>
       <p><strong>Fatouma Bourguiba High School</strong> — Baccalaureate in Experimental Sciences (Honors), 2022.</p>
     </div>
-<div><img class="figure" src="isimm.jpg" alt="ISIMM" style="max-width:250px;display:block;margin:0 auto;border-radius:12px;"></div>
-
+    <div><img class="figure" src="isimm.jpg" alt="ISIMM" style="max-width:250px;display:block;margin:0 auto;border-radius:12px;"></div>
   </div>
 </section>
 
@@ -240,7 +239,6 @@ footer{
 </section>
 
 <!-- ===== SAHNI ===== -->
-<!-- ===== SAHNI ===== -->
 <section class="section">
   <h2>Sahni — Smart Sustainability Startup</h2>
   <img class="logo-img" src="sahni fruits.jpg" alt="Sahni Logo">
@@ -253,8 +251,6 @@ footer{
   </ul>
 </section>
 
-
-<!-- ===== IEEE ISIMM ===== -->
 <!-- ===== IEEE ISIMM ===== -->
 <section class="section">
   <h2>IEEE ISIMM Student Branch</h2>
@@ -268,8 +264,6 @@ footer{
   </ul>
 </section>
 
-
-<!-- ===== WIE ===== -->
 <!-- ===== WIE ===== -->
 <section class="section">
   <h2>IEEE Women in Engineering (WIE)</h2>
@@ -283,7 +277,6 @@ footer{
   </ul>
 </section>
 
-
 <!-- ===== CONTACT ===== -->
 <section class="section">
   <h2>Contact</h2>
@@ -295,5 +288,25 @@ footer{
 </section>
 
 <footer>© 2025 Amna Boughamoura — All rights reserved</footer>
+
+<!-- ===== VANTA JS Background Animation ===== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+<script>
+VANTA.GLOBE({
+  el: "#vanta-bg",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0x355dd9,
+  color2: 0xd5ccd6,
+  backgroundColor: 0x161324
+});
+</script>
+
 </body>
 </html>
