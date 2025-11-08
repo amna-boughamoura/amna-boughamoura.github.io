@@ -16,7 +16,7 @@
 }
 
 /* GLOBAL */
-* { box-sizing: border-box }
+* { box-sizing: border-box; scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
@@ -34,7 +34,18 @@ h2 {
 p, li { font-size: 20px; }
 ul { padding-left: 24px; }
 
-/* HERO */
+/* FADE ANIMATION */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HERO SECTION */
 #hero {
   position: relative;
   height: 100vh;
@@ -43,6 +54,7 @@ ul { padding-left: 24px; }
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  padding: 0;
 }
 #vanta-bg {
   position: absolute;
@@ -111,41 +123,19 @@ ul { padding-left: 24px; }
   background: linear-gradient(90deg, var(--blue2), var(--blue3), #3b82f6);
 }
 
-/* SCROLL INDICATOR */
-.scroll-down {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  font-size: 28px;
-  animation: bounce 2s infinite;
-}
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-  40% { transform: translate(-50%, -12px); }
-  60% { transform: translate(-50%, -6px); }
-}
-
-/* SECTIONS + IMAGES */
+/* SECTIONS */
 .section {
   max-width: 1200px;
   margin: 100px auto;
   padding: 0 30px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease;
 }
-.section.visible { opacity: 1; transform: translateY(0); }
-.figure, .logo-img {
-  display: block;
-  margin: 20px auto;
+.section img {
+  float: right;
+  max-width: 300px;
+  margin: 0 0 20px 30px;
   border-radius: 12px;
-  max-width: 380px;
-  width: 100%;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 }
-
-/* FOOTER */
 footer {
   text-align: center;
   padding: 32px;
@@ -153,11 +143,15 @@ footer {
   color: #fff;
   font-size: 17px;
 }
-section, footer { position: relative; z-index: 1; }
+section, footer {
+  position: relative;
+  z-index: 1;
+}
 </style>
 </head>
 <body>
 
+<!-- HERO -->
 <header id="hero">
   <div id="vanta-bg"></div>
   <div class="hero-inner">
@@ -175,48 +169,127 @@ section, footer { position: relative; z-index: 1; }
       <a class="btn" href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank">🔗 LinkedIn</a>
     </div>
   </div>
-  <div class="scroll-down">⬇</div>
 </header>
 
-<section class="section">
+<!-- EDUCATION -->
+<section class="section fade-in">
   <h2>Academic Foundation</h2>
-  <p><strong>Higher Institute of Informatics & Mathematics of Monastir (ISIMM)</strong> — License in ICT (IoT Networks), 2022–Present.</p>
+  <img src="isimm.jpg" alt="ISIMM">
+  <p><strong>Higher Institute of Informatics &amp; Mathematics of Monastir (ISIMM)</strong> — License in ICT (IoT Networks), 2022–Present.</p>
   <p>Focus on IoT networks, embedded systems, AI on the edge, computer vision, and distributed sensor software design.</p>
-  <img src="isimm.jpg" alt="ISIMM" class="figure">
+  <p><strong>Fatouma Bourguiba High School</strong> — Baccalaureate in Experimental Sciences (Honors), 2022.</p>
 </section>
 
-<section class="section">
-  <h2>Daily Wellness Assistant</h2>
-  <p>AI assistant detecting facial emotions with DeepFace + OpenCV, using CNN models on FER2013 dataset.</p>
-  <img src="FIG DESIGN WEBSITE.jpg" alt="Daily Wellness Assistant" class="figure">
+<!-- PROJECTS -->
+<section class="section fade-in">
+  <h2>Daily Wellness Assistant (PFA Project)</h2>
+  <img src="FIG DESIGN WEBSITE.jpg" alt="Daily Wellness Assistant">
+  <p>AI assistant that detects facial emotions using <strong>DeepFace</strong> + <strong>OpenCV</strong> with real-time webcam input.</p>
+  <ul>
+    <li>CNN/FER models trained on FER2013 dataset with strong validation accuracy.</li>
+    <li>Privacy-first local inference, no cloud uploads.</li>
+    <li>Interactive dashboard for tracking daily emotional wellbeing.</li>
+  </ul>
 </section>
 
-<section class="section">
+<section class="section fade-in">
   <h2>Intelligent Home Automation System</h2>
-  <p>IoT-based automation using Arduino and ESP32 to manage lighting, irrigation, and indoor comfort.</p>
-  <img src="smart home.jpg" alt="Smart Home" class="figure">
+  <img src="smart home.jpg" alt="Home Automation">
+  <p>IoT-based automation using Arduino and ESP32 to manage lighting, irrigation, and indoor comfort via sensors.</p>
+  <ul>
+    <li>Integrated temperature, humidity, light, and soil moisture sensors.</li>
+    <li>Energy-aware scheduling and MQTT/REST connectivity.</li>
+  </ul>
 </section>
 
-<section class="section">
+<!-- SAHNI -->
+<section class="section fade-in">
   <h2>Sahni — Smart Sustainability Startup</h2>
-  <img src="sahni fruits.jpg" alt="Sahni" class="logo-img">
-  <p>Co-founder of an AI-driven IoT sustainability solution optimizing agriculture efficiency and reducing waste.</p>
+  <img src="sahni fruits.jpg" alt="Sahni Logo">
+  <p><strong>Co-Founder & Team Leader (2023 – Present)</strong></p>
+  <ul>
+    <li>Led <em>Team Sahni</em> to 1st place in the IEEE Internal Pitching Competition with an IoT- and AI-powered sustainability startup idea.</li>
+    <li>Designed a prototype using sensors and machine learning to optimize smart meal planning and reduce food waste.</li>
+    <li>Completed the OSTX Entrepreneurship Training Program, receiving mentorship on business modeling and startup development.</li>
+  </ul>
 </section>
 
-<section class="section">
+<!-- IEEE ISIMM -->
+<section class="section fade-in">
   <h2>IEEE ISIMM Student Branch</h2>
-  <img src="IEEE ISIMM.jpg" alt="IEEE ISIMM" class="logo-img">
-  <p>Organizer and mentor for coding and AI workshops with over 100 participants; ranked top in Tunisia at IEEEXtreme 17.</p>
+  <img src="IEEE ISIMM.jpg" alt="IEEE ISIMM Logo">
+  <p><strong>Active Member (Oct. 2022 – Present)</strong></p>
+  <ul>
+    <li>Ranked <strong>1st</strong> at ISIMM and <strong>8th nationally</strong> in the <strong>IEEEXtreme 17th</strong> coding competition.</li>
+    <li>Served as a <strong>Technical Writer</strong> for the CRIEEE Challenge, managing and creating social media campaigns across universities.</li>
+    <li>Participated in technical workshops: Flutter Development, Computer Vision, and Think Like a Programmer.</li>
+  </ul>
 </section>
 
-<section class="section">
+<!-- WIE -->
+<section class="section fade-in">
   <h2>IEEE Women in Engineering (WIE)</h2>
-  <img src="wie123.jpg" alt="WIE" class="logo-img">
-  <p>Vice Chair (2023) — led WIE Care & Share and WIE Heal campaigns to promote women’s empowerment in technology.</p>
+  <img src="wie123.jpg" alt="WIE Logo">
+  <p><strong>Vice Chair (Feb. 2023 – Nov. 2023)</strong></p>
+  <ul>
+    <li>Directed the <strong>“WIE Care & Share”</strong> Ramadan charity initiative — mobilized donations to support 10+ families.</li>
+    <li>Led the <strong>“WIE Heal 2.0”</strong> breast cancer awareness campaign with healthcare professionals.</li>
+    <li>Organized <strong>“WIE Motivate”</strong> and <strong>UI/UX Design</strong> workshops to empower students.</li>
+  </ul>
+</section>
+
+<!-- TECH PATHWAYS -->
+<section class="section fade-in">
+  <h2>Tech Pathways MENA Program</h2>
+  <img src="mena tech.png" alt="MENA Tech Pathways">
+  <p>Selected participant in the <strong>Tech Pathways MENA</strong> program by Google and Womentech Network, focusing on innovation, AI, and entrepreneurship.</p>
+</section>
+
+<!-- SKILLS -->
+<section class="section fade-in">
+  <h2>Technical Skills</h2>
+  <ul>
+    <li><strong>Programming:</strong> Python, C, JavaScript, HTML/CSS, Arduino.</li>
+    <li><strong>AI & ML:</strong> TensorFlow, Keras, OpenCV, DeepFace.</li>
+    <li><strong>IoT & Embedded:</strong> ESP32, Arduino IDE, MQTT, Raspberry Pi.</li>
+    <li><strong>Tools:</strong> GitHub, Figma, VS Code, Proteus, Canva.</li>
+  </ul>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section fade-in">
+  <h2>Certifications</h2>
+  <ul>
+    <li>IEEE Smart Sustainability Startup Challenge (Winner, 2023)</li>
+    <li>OSTX Entrepreneurship Training Program (2023)</li>
+    <li>Tech Pathways MENA — Google & Womentech Network (2024)</li>
+  </ul>
+</section>
+
+<!-- LANGUAGES -->
+<section class="section fade-in">
+  <h2>Languages</h2>
+  <ul>
+    <li><strong>Arabic:</strong> Native</li>
+    <li><strong>French:</strong> Advanced</li>
+    <li><strong>English:</strong> Fluent</li>
+  </ul>
+</section>
+
+<!-- CONTACT -->
+<section class="section fade-in">
+  <h2>Contact</h2>
+  <p>Get in touch with me for collaborations or projects!</p>
+  <div>
+    <a class="btn" href="mailto:amna.boughamoura@gmail.com">📧 Email</a>
+    <a class="btn" href="https://github.com/amna-boughamoura" target="_blank">💻 GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank">🔗 LinkedIn</a>
+  </div>
 </section>
 
 <footer>© 2025 Amna Boughamoura — All rights reserved</footer>
 
+<!-- VANTA BACKGROUND -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
 <script>
@@ -236,17 +309,16 @@ document.addEventListener("DOMContentLoaded", function() {
       backgroundColor: 0x161324
     });
   }
-
-  const sections = document.querySelectorAll('.section');
-  const fadeIn = () => {
-    sections.forEach(sec => {
-      const rect = sec.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) sec.classList.add('visible');
-    });
-  };
-  window.addEventListener('scroll', fadeIn);
-  fadeIn();
 });
+
+// Fade animation on scroll
+const fadeEls = document.querySelectorAll(".fade-in");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("visible");
+  });
+}, { threshold: 0.2 });
+fadeEls.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
