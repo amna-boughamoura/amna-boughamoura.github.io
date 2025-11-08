@@ -8,8 +8,9 @@
 
 <style>
 :root{
-  --blue1:#1d4ed8;
-  --blue2:#60a5fa;
+  --blue1:#0b1e56;
+  --blue2:#1e3a8a;
+  --blue3:#2563eb;
   --ink:#0a142f; 
   --text:#1f2937;
 }
@@ -26,7 +27,7 @@ body{
 h2{
   font-family:"Playfair Display",serif;
   font-size:38px;
-  color:var(--blue1);
+  color:var(--blue2);
   margin-bottom:20px;
 }
 p,li{font-size:20px}
@@ -53,8 +54,8 @@ ul{padding-left:24px}
   content:"";
   position:absolute; inset:0;
   background:linear-gradient(180deg,
-    rgba(6,12,32,.85) 0%,
-    rgba(6,12,32,.75) 40%,
+    rgba(6,12,32,.65) 0%,
+    rgba(6,12,32,.55) 40%,
     rgba(255,255,255,.95) 88%,
     #fff 100%);
   z-index:-1;
@@ -64,14 +65,12 @@ ul{padding-left:24px}
   max-width:950px;
   padding:40px 24px;
   margin:0 auto;
-  position:relative;
-  z-index:2;
 }
 .hero-pic{
   width:200px;
   height:200px;
   object-fit:cover;
-  border-radius:50%;         /* circular image */
+  border-radius:50%;         
   border:5px solid #fff;
   box-shadow:0 6px 22px rgba(0,0,0,.4);
   margin:0 auto 24px;
@@ -97,7 +96,7 @@ ul{padding-left:24px}
   line-height:1.7;
   margin:0 auto 24px;
   color:#0f1733;
-  background:rgba(255,255,255,.75);
+  background:rgba(255,255,255,.8);
   padding:14px 22px;
   border-radius:16px;
   backdrop-filter:blur(6px);
@@ -111,14 +110,14 @@ ul{padding-left:24px}
   font-weight:700;
   color:#fff;
   text-decoration:none;
-  background:linear-gradient(90deg, #0b1e56, #1e3a8a, #2563eb);
+  background:linear-gradient(90deg,var(--blue1),var(--blue2),var(--blue3));
   font-size:clamp(14px,1.5vw,16px);
   box-shadow:0 3px 12px rgba(0,0,0,.25);
   transition:transform .25s ease;
 }
 .btn:hover{
   transform:scale(1.04);
-  background:linear-gradient(90deg, #1e3a8a, #2563eb, #3b82f6);
+  background:linear-gradient(90deg,var(--blue2),var(--blue3),#3b82f6);
 }
 
 /* ===== SECTIONS ===== */
@@ -159,7 +158,7 @@ ul{padding-left:24px}
 footer{
   text-align:center;
   padding:32px;
-  background:linear-gradient(90deg,var(--blue1),var(--blue2));
+  background:linear-gradient(90deg,var(--blue1),var(--blue3));
   color:#fff;
   font-size:17px;
 }
