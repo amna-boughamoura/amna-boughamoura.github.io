@@ -1,349 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Amna Boughamoura | IoT & AI Developer</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Amna Boughamoura | IoT & AI Developer</title>
+  <meta name="description" content="ICT student (IoT Networks) at ISIMM. Building AI + IoT systems: emotion-aware wellness assistant, smart home automation, and sustainability startup projects." />
+  <meta name="keywords" content="Amna Boughamoura, IoT, AI, Computer Vision, DeepFace, OpenCV, ESP32, Arduino, Flutter, ISIMM" />
+
   <link rel="icon" type="image/png" href="portfoliologo.png" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
-<style>
-:root {
-  --blue1: #0b1e56;
-  --blue2: #1e3a8a;
-  --blue3: #2563eb;
-  --text: #1f2937;
-}
+  <!-- Open Graph -->
+  <meta property="og:title" content="Amna Boughamoura | IoT & AI Developer" />
+  <meta property="og:description" content="IoT Networks student at ISIMM building AI + IoT projects (emotion recognition, smart home, sustainability)." />
+  <meta property="og:type" content="website" />
 
-/* GLOBAL */
-* { box-sizing: border-box; scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: "Open Sans", sans-serif;
-  color: var(--text);
-  background: #fff;
-  line-height: 1.8;
-  overflow-x: hidden;
-}
-h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 38px;
-  color: var(--blue2);
-  margin-bottom: 20px;
-}
-p, li { font-size: 20px; }
-ul { padding-left: 24px; }
+  <style>
+    :root{
+      --blue1:#0b1e56;
+      --blue2:#1e3a8a;
+      --blue3:#2563eb;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --card:#f7f9ff;
+      --border:rgba(15, 23, 42, .10);
+    }
 
-/* FADE ANIMATION */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 1s ease-out;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    *{ box-sizing:border-box; scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family:"Open Sans",sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.75;
+      overflow-x:hidden;
+    }
+    a{ color:inherit; }
+    h1,h2,h3{ margin:0; }
+    h2{
+      font-family:"Playfair Display",serif;
+      font-size: clamp(26px, 3.2vw, 38px);
+      color:var(--blue2);
+      margin-bottom:18px;
+      letter-spacing:.2px;
+    }
+    p,li{ font-size: clamp(16px, 1.3vw, 18px); }
+    ul{ padding-left:22px; margin: 12px 0; }
 
-/* HERO SECTION */
-#hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  padding: 0;
-}
-#vanta-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-}
-.hero-inner {
-  width: 100%;
-  max-width: 950px;
-  padding: 40px 24px;
-  margin: 0 auto;
-}
-.hero-pic {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid #fff;
-  box-shadow: 0 6px 22px rgba(0, 0, 0, .4);
-  margin: 0 auto 24px;
-}
-.hero-name {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(38px, 6vw, 58px);
-  line-height: 1.1;
-  margin: 10px 0 12px;
-  color: #fff;
-  text-shadow: 0 6px 24px rgba(0, 0, 0, .85);
-}
-.hero-role {
-  font-size: clamp(16px, 2.4vw, 24px);
-  font-weight: 700;
-  color: #eaf1ff;
-  margin: 0 0 20px;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, .6);
-}
-.hero-intro {
-  max-width: 760px;
-  font-size: clamp(14px, 1.9vw, 18px);
-  line-height: 1.7;
-  margin: 0 auto 24px;
-  color: #0f1733;
-  background: rgba(255, 255, 255, .8);
-  padding: 14px 22px;
-  border-radius: 16px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 2px 15px rgba(0, 0, 0, .08);
-}
-.btn {
-  display: inline-block;
-  margin: 6px 10px;
-  padding: 12px 26px;
-  border-radius: 12px;
-  font-weight: 700;
-  color: #fff;
-  text-decoration: none;
-  background: linear-gradient(90deg, var(--blue1), var(--blue2), var(--blue3));
-  font-size: clamp(14px, 1.5vw, 16px);
-  box-shadow: 0 3px 12px rgba(0, 0, 0, .25);
-  transition: transform .25s ease;
-}
-.btn:hover {
-  transform: scale(1.04);
-  background: linear-gradient(90deg, var(--blue2), var(--blue3), #3b82f6);
-}
+    /* Fade animation */
+    .fade-in{
+      opacity:0;
+      transform:translateY(16px);
+      transition:all .9s ease-out;
+    }
+    .fade-in.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
 
-/* SECTIONS */
-.section {
-  max-width: 1200px;
-  margin: 100px auto;
-  padding: 0 30px;
-}
-.section img {
-  border-radius: 12px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-}
+    /* Navbar */
+    .nav{
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:10;
+      padding:12px 18px;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner{
+      max-width:1200px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      font-weight:800;
+      color:var(--blue1);
+    }
+    .brand-dot{
+      width:10px; height:10px;
+      border-radius:50%;
+      background: linear-gradient(90deg, var(--blue1), var(--blue3));
+      display:inline-block;
+    }
+    .nav-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 14px;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    .nav-links a{
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      color:#0f172a;
+      opacity:.88;
+      padding:8px 10px;
+      border-radius:10px;
+    }
+    .nav-links a:hover{
+      background: rgba(37,99,235,.10);
+      opacity:1;
+    }
 
-/* IMAGE ADJUSTMENTS */
-.academic-img { float: right; max-width: 220px; margin-left: 20px; }
-.daily-img { display: block; margin: 0 auto 30px; max-width: 80%; }
-.home-img { float: right; max-width: 380px; margin-left: 20px; }
-.sahni-img, .ieee-img, .wie-img { float: right; max-width: 200px; margin-left: 20px; }
-.tech-img { display: block; margin: 0 auto 30px; max-width: 80%; }
+    /* Buttons */
+    .btn{
+      display:inline-block;
+      margin:6px 8px 0 0;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:800;
+      color:#fff;
+      text-decoration:none;
+      background: linear-gradient(90deg, var(--blue1), var(--blue2), var(--blue3));
+      font-size:15px;
+      box-shadow:0 3px 12px rgba(0,0,0,.18);
+      transition: transform .18s ease;
+      border:0;
+    }
+    .btn:hover{ transform: translateY(-2px); }
+    .btn.secondary{
+      background:#0f172a;
+    }
+    .btn.ghost{
+      background: rgba(255,255,255,.90);
+      color:#0f172a;
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
 
-/* CONTACT */
-.separator {
-  width: 60%;
-  height: 3px;
-  margin: 60px auto 40px;
-  background: linear-gradient(90deg, var(--blue1), var(--blue3));
-  border: none;
-  border-radius: 2px;
-}
-.contact-section {
-  text-align: center;
-}
-footer {
-  text-align: center;
-  padding: 32px;
-  background: linear-gradient(90deg, var(--blue1), var(--blue3));
-  color: #fff;
-  font-size: 17px;
-}
-section, footer {
-  position: relative;
-  z-index: 1;
-}
-</style>
+    /* Hero */
+    #hero{
+      position:relative;
+      height:100vh;
+      min-height: 720px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      overflow:hidden;
+      padding: 90px 18px 40px; /* account for fixed nav */
+    }
+    #vanta-bg{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      z-index:-2;
+    }
+    .hero-inner{
+      width:100%;
+      max-width:980px;
+      padding: 26px 18px;
+      margin:0 auto;
+    }
+    .hero-pic{
+      width:180px; height:180px;
+      object-fit:cover;
+      border-radius:50%;
+      border:5px solid #fff;
+      box-shadow:0 6px 22px rgba(0,0,0,.38);
+      margin:0 auto 18px;
+    }
+    .hero-name{
+      font-family:"Playfair Display",serif;
+      font-size: clamp(38px, 6vw, 62px);
+      line-height:1.05;
+      margin: 8px 0 10px;
+      color:#fff;
+      text-shadow:0 6px 24px rgba(0,0,0,.85);
+    }
+    .hero-role{
+      font-size: clamp(15px, 2.3vw, 22px);
+      font-weight:800;
+      color:#eaf1ff;
+      margin:0 0 16px;
+      text-shadow:0 4px 16px rgba(0,0,0,.55);
+    }
+    .hero-intro{
+      max-width: 820px;
+      margin: 0 auto 16px;
+      font-size: 16px;
+      line-height:1.65;
+      color:#0f172a;
+      background: rgba(255,255,255,.86);
+      padding: 14px 18px;
+      border-radius: 16px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 15px rgba(0,0,0,.10);
+      text-align:left;
+    }
+
+    /* Highlights */
+    .highlights{
+      max-width: 820px;
+      margin: 14px auto 18px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:12px;
+    }
+    .pill{
+      background: rgba(255,255,255,.82);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:12px 12px;
+      text-align:left;
+      box-shadow: 0 2px 14px rgba(0,0,0,.08);
+    }
+    .pill b{
+      display:block;
+      font-size:14px;
+      color:#0f172a;
+      margin-bottom:2px;
+    }
+    .pill span{
+      font-size:13px;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    /* Sections */
+    .section{
+      max-width:1200px;
+      margin: 90px auto;
+      padding: 0 22px;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(2,6,23,.06);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .grid.two{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .meta{
+      color:var(--muted);
+      font-weight:700;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
+    }
+    .tag{
+      font-size:12px;
+      font-weight:800;
+      color:#0f172a;
+      background: rgba(37,99,235,.10);
+      border:1px solid rgba(37,99,235,.16);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    /* Images */
+    .section img{
+      width:100%;
+      border-radius:14px;
+      border: 1px solid var(--border);
+      box-shadow:0 3px 12px rgba(0,0,0,0.09);
+      margin: 10px 0 12px;
+    }
+
+    /* Contact + footer */
+    .separator{
+      width: 60%;
+      height: 3px;
+      margin: 60px auto 40px;
+      background: linear-gradient(90deg, var(--blue1), var(--blue3));
+      border: none;
+      border-radius: 2px;
+    }
+    .contact-section{
+      text-align:center;
+    }
+    footer{
+      text-align:center;
+      padding: 28px 18px;
+      background: linear-gradient(90deg, var(--blue1), var(--blue3));
+      color:#fff;
+      font-size: 15px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      .grid.two{ grid-template-columns: 1fr; }
+      .highlights{ grid-template-columns: 1fr; }
+      #hero{ min-height: 760px; height:auto; padding-top: 96px; padding-bottom: 40px; }
+      .hero-intro{ text-align:left; }
+    }
+  </style>
+
+  <!-- Simple JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Amna Boughamoura",
+    "jobTitle":"IoT & AI Developer",
+    "address":{"@type":"PostalAddress","addressLocality":"Monastir","addressCountry":"TN"},
+    "email":"mailto:amna.boughamoura@gmail.com",
+    "sameAs":[
+      "https://github.com/amna-boughamoura",
+      "https://www.linkedin.com/in/amna-boughamoura-b947b024b/"
+    ]
+  }
+  </script>
 </head>
+
 <body>
 
-<!-- HERO -->
-<header id="hero">
-  <div id="vanta-bg"></div>
-  <div class="hero-inner">
-    <img class="hero-pic" src="PROFPFP.jpg" alt="Amna Boughamoura">
-    <h1 class="hero-name">Amna Boughamoura</h1>
-    <p class="hero-role">ICT Student · IoT &amp; AI Developer</p>
-    <p class="hero-intro">
-      ICT student specializing in IoT Networks at ISIMM. I build intelligent systems that merge sensors,
-      embedded platforms, and AI for real-world impact. Ranked 1st at ISIMM and 8th in Tunisia (IEEEXtreme 17).
-      IEEE Smart Sustainability Startup winner; WIE Vice Chair empowering women in tech.
-    </p>
-    <div>
-      <a class="btn" href="Amna_Boughamoura_CV_eng.pdf" download>⬇ My CV</a>
-      <a class="btn" href="https://github.com/amna-boughamoura" target="_blank">💻 GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank">🔗 LinkedIn</a>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#hero"><span class="brand-dot"></span> Amna</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
-  </div>
-</header>
+  </nav>
 
-<!-- EDUCATION -->
-<section class="section fade-in">
-  <h2>Academic Foundation</h2>
-  <img src="isimm.jpg" alt="ISIMM" class="academic-img">
-  <p><strong>Higher Institute of Informatics &amp; Mathematics of Monastir (ISIMM)</strong> — License in ICT (IoT Networks), 2022–Present.</p>
-  <ul>
-    <li>Coursework: IoT Networks, Embedded Systems, Computer Vision, Web & Mobile Development.</li>
-  </ul>
-  <p><strong>Fatouma Bourguiba High School</strong> — Baccalaureate in Experimental Sciences (Honors), 2022.</p>
-</section>
+  <!-- HERO -->
+  <header id="hero">
+    <div id="vanta-bg"></div>
 
-<!-- PROJECTS -->
-<section class="section fade-in">
-  <h2>Daily Wellness Assistant – Emotion-Aware Productivity Tool</h2>
-  <img src="FIG DESIGN WEBSITE.jpg" alt="Daily Wellness Assistant" class="daily-img">
-  <p>AI-powered assistant that detects facial emotions using DeepFace and OpenCV to support mental wellbeing.</p>
-  <ul>
-    <li>Processes 1,000+ data points/hour with 95% accuracy for real-time emotion recognition.</li>
-    <li>Provides personalized UI and feedback for emotional awareness and productivity.</li>
-    <li>Prioritizes privacy with on-device processing and ethical AI design.</li>
-  </ul>
-</section>
+    <div class="hero-inner fade-in">
+      <img class="hero-pic" src="PROFPFP.jpg" alt="Amna Boughamoura portrait">
 
-<section class="section fade-in">
-  <h2>Intelligent Home Automation System</h2>
-  <img src="smart home.jpg" alt="Home Automation" class="home-img">
-  <p>Smart system using Arduino and ESP32 to automate lighting, irrigation, and indoor comfort through sensors.</p>
-  <ul>
-    <li>Used DHT11, LDR, and soil moisture sensors for real-time environmental monitoring.</li>
-    <li>Designed a mobile app and LCD dashboard for manual and remote control.</li>
-    <li>Enhanced energy efficiency and user comfort through adaptive automation.</li>
-  </ul>
-</section>
+      <h1 class="hero-name">Amna Boughamoura</h1>
+      <p class="hero-role">ICT Student (IoT Networks) · IoT &amp; AI Developer</p>
 
-<!-- SAHNI -->
-<section class="section fade-in">
-  <h2>Sahni — Smart Sustainability Startup</h2>
-  <img src="sahni fruits.jpg" alt="Sahni Logo" class="sahni-img">
-  <p><strong>Co-Founder & Team Leader (2023 – Present)</strong></p>
-  <ul>
-    <li>Winner of IEEE Smart Sustainability Startup Challenge (2023).</li>
-    <li>Developed an IoT- and AI-powered platform for smart meal planning and food waste reduction.</li>
-    <li>Completed OSTX Entrepreneurship Program on business modeling and innovation.</li>
-    <li>Led branding, UI design, and team pitching.</li>
-  </ul>
-</section>
+      <div class="hero-intro">
+        <b>What I build:</b> human-centered AI + IoT systems that connect computer vision with embedded devices and responsive environments.
+        <br><br>
+        <b>Current focus:</b> an emotion-aware wellness & productivity assistant combining DeepFace + OpenCV with sensors (PIR, DHT11), LCD monitoring,
+        music-driven LED behavior, and a full-stack web interface (Pomodoro, tasks, reminders, live emotion curve).
+      </div>
 
-<!-- IEEE ISIMM -->
-<section class="section fade-in">
-  <h2>IEEE ISIMM Student Branch</h2>
-  <img src="IEEE ISIMM.jpg" alt="IEEE ISIMM Logo" class="ieee-img">
-  <p><strong>Active Member (Oct. 2022 – Present)</strong></p>
-  <ul>
-    <li>Ranked 1st at ISIMM and 8th nationally in IEEEXtreme 17.</li>
-    <li>Participated in workshops on Flutter, Computer Vision, and Think Like a Programmer.</li>
-    <li>Served as Technical Writer for CRIEEE Challenge, managing cross-campus media campaigns.</li>
-  </ul>
-</section>
+      <div class="highlights">
+        <div class="pill">
+          <b>IEEEXtreme 17</b>
+          <span>1st at ISIMM · 8th nationally</span>
+        </div>
+        <div class="pill">
+          <b>IEEE Startup Winner</b>
+          <span>Smart Sustainability Startup Challenge</span>
+        </div>
+        <div class="pill">
+          <b>Leadership</b>
+          <span>IEEE WIE Vice Chair · Team Lead</span>
+        </div>
+      </div>
 
-<!-- WIE -->
-<section class="section fade-in">
-  <h2>IEEE Women in Engineering (WIE)</h2>
-  <img src="wie123.jpg" alt="WIE Logo" class="wie-img">
-  <p><strong>Vice Chair (Feb. 2023 – Nov. 2023)</strong></p>
-  <ul>
-    <li>Organized 4+ impactful events including charity drives, awareness campaigns, and design workshops.</li>
-    <li>Led “WIE Heal 2.0” breast cancer awareness event with 50+ participants.</li>
-    <li>Launched “WIE Motivate” mental health support initiative and “Care & Share” charity drive.</li>
-  </ul>
-</section>
+      <div>
+        <a class="btn" href="Amna_Boughamoura_CV_eng.pdf" download>⬇ Download CV</a>
+        <a class="btn ghost" href="#projects">🚀 View Projects</a>
+        <a class="btn secondary" href="https://github.com/amna-boughamoura" target="_blank" rel="noreferrer">💻 GitHub</a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
+      </div>
+    </div>
+  </header>
 
-<!-- TECH PATHWAYS -->
-<section class="section fade-in">
-  <h2>Tech Pathways MENA Program</h2>
-  <img src="mena tech.png" alt="MENA Tech Pathways" class="tech-img">
-  <p>Selected among top MENA innovators by Google and WomenTech Network. Participated in leadership, AI, and entrepreneurship workshops and led a mini-project promoting digital innovation and sustainability.</p>
-</section>
+  <!-- ABOUT -->
+  <section id="about" class="section fade-in">
+    <h2>About</h2>
+    <div class="card">
+      <p>
+        I’m a Bachelor’s student in <b>ICT (IoT Networks)</b> at <b>ISIMM</b> (2022–Present), based in Monastir, Tunisia.
+        I enjoy building end-to-end prototypes: from <b>computer vision</b> and <b>emotion recognition</b> to <b>embedded control</b>,
+        sensors, and user interfaces.
+      </p>
+      <p class="meta">
+        Interests: AI + Computer Vision · IoT & Embedded Systems · Human-centered and privacy-respecting design
+      </p>
+    </div>
+  </section>
 
-<!-- SKILLS -->
-<section class="section fade-in">
-  <h2>Technical Skills</h2>
-  <ul>
-    <li><strong>AI & ML:</strong> Emotion Recognition, Computer Vision, DeepFace, TensorFlow, OpenCV.</li>
-    <li><strong>IoT & Embedded:</strong> Arduino, ESP32, Sensors, Actuators, MQTT, Raspberry Pi.</li>
-    <li><strong>Programming:</strong> Python, C, HTML/CSS, Flutter.</li>
-    <li><strong>UI/UX:</strong> Figma, Web Design, Canva.</li>
-    <li><strong>Tools:</strong> GitHub, VS Code, Proteus.</li>
-  </ul>
-</section>
+  <!-- PROJECTS -->
+  <section id="projects" class="section fade-in">
+    <h2>Featured Projects</h2>
 
-<!-- CERTIFICATIONS -->
-<section class="section fade-in">
-  <h2>Certifications</h2>
-  <ul>
-    <li>IEEE Smart Sustainability Startup (Winner, 2023)</li>
-    <li>OSTX Entrepreneurship Program (2023)</li>
-    <li>Flutter Development Workshop (IEEE ISIMM)</li>
-    <li>Tech Pathways MENA — Google & WomenTech Network (2025)</li>
-  </ul>
-</section>
+    <div class="grid">
+      <!-- Project 1 -->
+      <div class="card">
+        <h3>Daily Wellness Assistant (AI + IoT)</h3>
+        <div class="meta">Founder & Lead Developer · Sep 2025 – Dec 2025 (PFA)</div>
+        <img src="FIG DESIGN WEBSITE.jpg" alt="Daily Wellness Assistant preview">
+        <p>
+          Emotion-aware wellness & productivity assistant integrating real-time facial emotion recognition (DeepFace + OpenCV),
+          presence detection (PIR), environmental monitoring (DHT11 → LCD), and adaptive feedback via a full-stack web interface.
+        </p>
+        <ul>
+          <li>Live emotion visualization (emotion curve) + session management (Pomodoro), tasks & reminders.</li>
+          <li>Music-driven LED behavior (focus/calm/energy/lo-fi moods).</li>
+          <li>Privacy-first approach: designed for human-centered, responsible use.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">DeepFace</span><span class="tag">OpenCV</span>
+          <span class="tag">IoT</span><span class="tag">Sensors</span><span class="tag">Full-Stack UI</span>
+        </div>
+        <p class="meta">
+          Add links: Repo + Demo video + Architecture diagram (recommended).
+        </p>
+      </div>
 
-<!-- LANGUAGES -->
-<section class="section fade-in">
-  <h2>Languages</h2>
-  <ul>
-    <li><strong>Arabic:</strong> Native</li>
-    <li><strong>French:</strong> Advanced</li>
-    <li><strong>English:</strong> Fluent</li>
-    <li><strong>Korean:</strong> Basic</li>
-  </ul>
-</section>
+      <!-- Project 2 -->
+      <div class="card">
+        <h3>Intelligent Home Automation System</h3>
+        <div class="meta">IoT Developer · Jan – May 2025 (PFA)</div>
+        <img src="smart home.jpg" alt="Smart home project preview">
+        <p>
+          Real-time smart home system using Arduino + sensors to monitor and automate indoor comfort and irrigation,
+          with manual/remote override and LCD monitoring.
+        </p>
+        <ul>
+          <li>Sensors: DHT11, LM35, LDR, soil humidity + actuators for lighting/irrigation.</li>
+          <li>Mobile application + LCD dashboard for live monitoring and control.</li>
+          <li>Automation logic to improve comfort and energy efficiency.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Arduino</span><span class="tag">ESP32</span><span class="tag">C</span>
+          <span class="tag">Sensors</span><span class="tag">Mobile App</span><span class="tag">LCD</span>
+        </div>
+        <p class="meta">
+          Add links: Repo + Wiring diagram + Short demo clip (recommended).
+        </p>
+      </div>
 
-<!-- CONTACT -->
-<hr class="separator">
-<section class="section fade-in contact-section">
-  <h2>Contact</h2>
-  <p>Let’s connect! I’m open to collaborations, internships, or speaking opportunities.</p>
-  <div>
-    <a class="btn" href="mailto:amna.boughamoura@gmail.com">📧 Email</a>
-    <a class="btn" href="https://github.com/amna-boughamoura" target="_blank">💻 GitHub</a>
-    <a class="btn" href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank">🔗 LinkedIn</a>
-  </div>
-</section>
+      <!-- Project 3 -->
+      <div class="card">
+        <h3>Sahni — Sustainability Startup Concept</h3>
+        <div class="meta">Co-Founder & Team Leader · 2023 – Present</div>
+        <img src="sahni fruits.jpg" alt="Sahni project preview">
+        <p>
+          IEEE pitch-winning sustainability startup concept leveraging IoT + AI for smart meal planning and food waste reduction.
+          Led branding, UI prototype, and pitching.
+        </p>
+        <ul>
+          <li>Winner: IEEE Internal Pitching Competition (2023).</li>
+          <li>Completed OSTX training (entrepreneurship + business modeling).</li>
+          <li>Led website design and prototyping.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">IoT</span><span class="tag">AI</span><span class="tag">UI/UX</span>
+          <span class="tag">Pitching</span><span class="tag">Product</span>
+        </div>
+        <p class="meta">
+          Add links: Pitch deck (PDF) + Prototype screenshots (recommended).
+        </p>
+      </div>
+    </div>
+  </section>
 
-<footer>© 2025 Amna Boughamoura — All rights reserved</footer>
+  <!-- LEADERSHIP -->
+  <section id="leadership" class="section fade-in">
+    <h2>Leadership & Activities</h2>
 
-<!-- VANTA BACKGROUND -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  if (typeof VANTA !== "undefined" && VANTA.GLOBE) {
-    VANTA.GLOBE({
-      el: "#vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color: 0x355dd9,
-      color2: 0xd5ccd6,
-      backgroundColor: 0x161324
+    <div class="grid two">
+      <div class="card">
+        <h3>IEEE ISIMM Student Branch</h3>
+        <div class="meta">Active Member · Oct 2022 – Present</div>
+        <img src="IEEE ISIMM.jpg" alt="IEEE ISIMM">
+        <ul>
+          <li>IEEEXtreme 17: <b>1st at ISIMM</b>, <b>8th nationally</b>.</li>
+          <li>Technical Writer (CRIEEE Challenge): managed cross-campus campaign content.</li>
+          <li>Workshops: Flutter, Computer Vision, Think Like a Programmer.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>IEEE Women in Engineering (WIE)</h3>
+        <div class="meta">Vice Chair · Feb 2023 – Nov 2023</div>
+        <img src="wie123.jpg" alt="IEEE WIE">
+        <ul>
+          <li>Led “WIE Care & Share” Ramadan charity supporting 10+ families + an orphanage.</li>
+          <li>Ran “WIE Heal 2.0” awareness event (50+ participants).</li>
+          <li>Organized “WIE Motivate” stress-management workshop + UI/UX workshop.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>Tech Pathways MENA Program</h3>
+      <div class="meta">Participant · Oct 2025 – Dec 2025</div>
+      <img src="mena tech.png" alt="Tech Pathways MENA">
+      <p>
+        Selected for a regional program focused on technology, innovation, and professional development through workshops,
+        collaboration, and mentorship.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section fade-in">
+    <h2>Skills & Tech Stack</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>Core Technical</h3>
+        <ul>
+          <li><b>AI / CV:</b> Emotion Recognition, DeepFace, OpenCV</li>
+          <li><b>IoT / Embedded:</b> Arduino, ESP32, sensors & actuators, LCD</li>
+          <li><b>Programming:</b> Python, C, HTML/CSS</li>
+          <li><b>Mobile / UI:</b> Flutter, UI/UX, Figma</li>
+          <li><b>Tools:</b> Git, GitHub, VS Code, Proteus</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Certifications & Recognition</h3>
+        <ul>
+          <li>IEEEXtreme 17 (2023): 1st at ISIMM, 8th nationally</li>
+          <li>OSTX Training Program (2023): entrepreneurship & startup development</li>
+          <li>Flutter Development Workshop (IEEE ISIMM)</li>
+        </ul>
+        <h3 style="margin-top:14px;">Languages</h3>
+        <ul>
+          <li>Arabic: Native · French: Advanced · English: C2 (EF SET 75/100)</li>
+          <li>Korean / Japanese / Italian / Chinese: Basic</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <hr class="separator">
+
+  <section id="contact" class="section fade-in contact-section">
+    <h2>Contact</h2>
+    <p>Open to internships, collaborations, and project opportunities.</p>
+    <p class="meta">Monastir, Tunisia · amna.boughamoura@gmail.com</p>
+    <div style="margin-top:10px;">
+      <a class="btn" href="mailto:amna.boughamoura@gmail.com">📧 Email</a>
+      <a class="btn secondary" href="https://github.com/amna-boughamoura" target="_blank" rel="noreferrer">💻 GitHub</a>
+      <a class="btn secondary" href="https://www.linkedin.com/in/amna-boughamoura-b947b024b/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>© 2025 Amna Boughamoura — All rights reserved</footer>
+
+  <!-- VANTA BACKGROUND -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof VANTA !== "undefined" && VANTA.GLOBE) {
+        VANTA.GLOBE({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0x355dd9,
+          color2: 0xd5ccd6,
+          backgroundColor: 0x161324
+        });
+      }
     });
-  }
-});
 
-// Fade animation on scroll
-const fadeEls = document.querySelectorAll(".fade-in");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add("visible");
-  });
-}, { threshold: 0.2 });
-fadeEls.forEach(el => observer.observe(el));
-</script>
+    // Fade animation on scroll
+    const fadeEls = document.querySelectorAll(".fade-in");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.18 });
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
