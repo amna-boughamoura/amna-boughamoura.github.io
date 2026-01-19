@@ -26,11 +26,13 @@
       --bg:#ffffff;
       --card:#f7f9ff;
       --border:rgba(15, 23, 42, .10);
+      --navH: 64px;
     }
 
     *{ box-sizing:border-box; scroll-behavior:smooth; }
     body{
       margin:0;
+      padding-top: var(--navH); /* FIX: prevent nav from covering hero */
       font-family:"Open Sans",sans-serif;
       color:var(--text);
       background:var(--bg);
@@ -49,6 +51,9 @@
     p,li{ font-size: clamp(16px, 1.3vw, 18px); }
     ul{ padding-left:22px; margin: 12px 0; }
 
+    /* FIX: anchor jumps should not hide under fixed nav */
+    section, header { scroll-margin-top: calc(var(--navH) + 18px); }
+
     /* Fade animation */
     .fade-in{
       opacity:0;
@@ -65,13 +70,15 @@
       position:fixed;
       top:0; left:0; right:0;
       z-index:10;
-      padding:12px 18px;
+      height: var(--navH);
+      padding:0 18px;
       background: rgba(255,255,255,.78);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
     .nav-inner{
       max-width:1200px;
+      height: var(--navH);
       margin:0 auto;
       display:flex;
       align-items:center;
@@ -129,15 +136,32 @@
       border:0;
     }
     .btn:hover{ transform: translateY(-2px); }
-    .btn.secondary{
-      background:#0f172a;
-    }
+    .btn.secondary{ background:#0f172a; }
     .btn.ghost{
       background: rgba(255,255,255,.90);
       color:#0f172a;
       border:1px solid var(--border);
       box-shadow:none;
     }
+
+    /* Small project buttons */
+    .btn-sm{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:12px;
+      font-weight:800;
+      text-decoration:none;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.92);
+      color:#0f172a;
+      transition: transform .18s ease;
+    }
+    .btn-sm.primary{
+      border:0;
+      color:#fff;
+      background: linear-gradient(90deg, var(--blue1), var(--blue2), var(--blue3));
+    }
+    .btn-sm:hover{ transform: translateY(-1px); }
 
     /* Hero */
     #hero{
@@ -149,7 +173,7 @@
       justify-content:center;
       text-align:center;
       overflow:hidden;
-      padding: 90px 18px 40px; /* account for fixed nav */
+      padding: calc(var(--navH) + 26px) 18px 40px; /* FIX: ensure picture never hides */
     }
     #vanta-bg{
       position:absolute;
@@ -279,6 +303,55 @@
       margin: 10px 0 12px;
     }
 
+    /* === FEATURED PROJECTS LAYOUT (center main + others after it) === */
+    .featured-wrap{
+      display:flex;
+      gap:18px;
+      align-items:stretch;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .project-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(2,6,23,.06);
+    }
+    .project-main{ flex: 0 1 520px; transform: translateY(-6px); }
+    .project-side{ flex: 0 1 360px; }
+    .project-card h3{ font-size: 20px; margin-bottom: 6px; }
+    .project-meta{ font-size: 14px; color: var(--muted); font-weight: 700; margin-bottom: 10px; }
+    .project-card img{
+      width:100%;
+      border-radius:14px;
+      border: 1px solid var(--border);
+      max-height: 240px;
+      object-fit: cover;
+      margin: 10px 0 12px;
+      box-shadow:0 3px 12px rgba(0,0,0,0.09);
+    }
+    .project-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    /* === Leadership readability fix === */
+    .lead-card h3{ font-size: 21px; }
+    .lead-card p, .lead-card li{ font-size: 17px; }
+    .lead-img{
+      max-height: 140px;   /* smaller than before */
+      object-fit: contain;
+      background: #fff;
+      padding: 10px;
+      border-radius:14px;
+      border: 1px solid var(--border);
+      box-shadow:0 3px 12px rgba(0,0,0,0.09);
+      margin: 10px 0 12px;
+    }
+
     /* Contact + footer */
     .separator{
       width: 60%;
@@ -288,9 +361,7 @@
       border: none;
       border-radius: 2px;
     }
-    .contact-section{
-      text-align:center;
-    }
+    .contact-section{ text-align:center; }
     footer{
       text-align:center;
       padding: 28px 18px;
@@ -304,8 +375,9 @@
       .grid{ grid-template-columns: 1fr; }
       .grid.two{ grid-template-columns: 1fr; }
       .highlights{ grid-template-columns: 1fr; }
-      #hero{ min-height: 760px; height:auto; padding-top: 96px; padding-bottom: 40px; }
+      #hero{ min-height: 760px; height:auto; padding-bottom: 40px; }
       .hero-intro{ text-align:left; }
+      .project-main, .project-side{ flex-basis: 100%; transform:none; }
     }
   </style>
 
@@ -402,11 +474,12 @@
   <section id="projects" class="section fade-in">
     <h2>Featured Projects</h2>
 
-    <div class="grid">
-      <!-- Project 1 -->
-      <div class="card">
+    <div class="featured-wrap">
+
+      <!-- MAIN (CENTERED) PROJECT -->
+      <div class="project-card project-main">
         <h3>Daily Wellness Assistant (AI + IoT)</h3>
-        <div class="meta">Founder & Lead Developer · Sep 2025 – Dec 2025 (PFA)</div>
+        <div class="project-meta">Founder & Lead Developer · Sep 2025 – Dec 2025 (PFA)</div>
         <img src="FIG DESIGN WEBSITE.jpg" alt="Daily Wellness Assistant preview">
         <p>
           Emotion-aware wellness & productivity assistant integrating real-time facial emotion recognition (DeepFace + OpenCV),
@@ -421,15 +494,17 @@
           <span class="tag">Python</span><span class="tag">DeepFace</span><span class="tag">OpenCV</span>
           <span class="tag">IoT</span><span class="tag">Sensors</span><span class="tag">Full-Stack UI</span>
         </div>
-        <p class="meta">
-          Add links: Repo + Demo video + Architecture diagram (recommended).
-        </p>
+
+        <div class="project-actions">
+          <a class="btn-sm primary" href="https://github.com/amna-boughamoura/daily-wellness-assistant" target="_blank" rel="noreferrer">💻 Repo</a>
+          <a class="btn-sm" href="https://github.com/amna-boughamoura/daily-wellness-assistant#readme" target="_blank" rel="noreferrer">📄 README</a>
+        </div>
       </div>
 
-      <!-- Project 2 -->
-      <div class="card">
+      <!-- SIDE PROJECT 1 -->
+      <div class="project-card project-side">
         <h3>Intelligent Home Automation System</h3>
-        <div class="meta">IoT Developer · Jan – May 2025 (PFA)</div>
+        <div class="project-meta">IoT Developer · Jan – May 2025 (PFA)</div>
         <img src="smart home.jpg" alt="Smart home project preview">
         <p>
           Real-time smart home system using Arduino + sensors to monitor and automate indoor comfort and irrigation,
@@ -444,15 +519,17 @@
           <span class="tag">Arduino</span><span class="tag">ESP32</span><span class="tag">C</span>
           <span class="tag">Sensors</span><span class="tag">Mobile App</span><span class="tag">LCD</span>
         </div>
-        <p class="meta">
-          Add links: Repo + Wiring diagram + Short demo clip (recommended).
-        </p>
+
+        <div class="project-actions">
+          <a class="btn-sm primary" href="https://github.com/amna-boughamoura/intelligent-home-automation" target="_blank" rel="noreferrer">💻 Repo</a>
+          <a class="btn-sm" href="https://github.com/amna-boughamoura/intelligent-home-automation#readme" target="_blank" rel="noreferrer">📄 README</a>
+        </div>
       </div>
 
-      <!-- Project 3 -->
-      <div class="card">
+      <!-- SIDE PROJECT 2 -->
+      <div class="project-card project-side">
         <h3>Sahni — Sustainability Startup Concept</h3>
-        <div class="meta">Co-Founder & Team Leader · 2023 – Present</div>
+        <div class="project-meta">Co-Founder & Team Leader · 2023 – Present</div>
         <img src="sahni fruits.jpg" alt="Sahni project preview">
         <p>
           IEEE pitch-winning sustainability startup concept leveraging IoT + AI for smart meal planning and food waste reduction.
@@ -467,10 +544,13 @@
           <span class="tag">IoT</span><span class="tag">AI</span><span class="tag">UI/UX</span>
           <span class="tag">Pitching</span><span class="tag">Product</span>
         </div>
-        <p class="meta">
-          Add links: Pitch deck (PDF) + Prototype screenshots (recommended).
-        </p>
+
+        <div class="project-actions">
+          <a class="btn-sm primary" href="https://github.com/amna-boughamoura/amna-boughamoura" target="_blank" rel="noreferrer">💻 Repo</a>
+          <a class="btn-sm" href="https://github.com/amna-boughamoura/amna-boughamoura#readme" target="_blank" rel="noreferrer">📄 README</a>
+        </div>
       </div>
+
     </div>
   </section>
 
@@ -479,10 +559,10 @@
     <h2>Leadership & Activities</h2>
 
     <div class="grid two">
-      <div class="card">
+      <div class="card lead-card">
         <h3>IEEE ISIMM Student Branch</h3>
         <div class="meta">Active Member · Oct 2022 – Present</div>
-        <img src="IEEE ISIMM.jpg" alt="IEEE ISIMM">
+        <img class="lead-img" src="IEEE ISIMM.jpg" alt="IEEE ISIMM">
         <ul>
           <li>IEEEXtreme 17: <b>1st at ISIMM</b>, <b>8th nationally</b>.</li>
           <li>Technical Writer (CRIEEE Challenge): managed cross-campus campaign content.</li>
@@ -490,10 +570,10 @@
         </ul>
       </div>
 
-      <div class="card">
+      <div class="card lead-card">
         <h3>IEEE Women in Engineering (WIE)</h3>
         <div class="meta">Vice Chair · Feb 2023 – Nov 2023</div>
-        <img src="wie123.jpg" alt="IEEE WIE">
+        <img class="lead-img" src="wie123.jpg" alt="IEEE WIE">
         <ul>
           <li>Led “WIE Care & Share” Ramadan charity supporting 10+ families + an orphanage.</li>
           <li>Ran “WIE Heal 2.0” awareness event (50+ participants).</li>
@@ -502,38 +582,58 @@
       </div>
     </div>
 
-    <div class="card" style="margin-top:16px;">
+    <div class="card lead-card" style="margin-top:16px;">
       <h3>Tech Pathways MENA Program</h3>
       <div class="meta">Participant · Oct 2025 – Dec 2025</div>
-      <img src="mena tech.png" alt="Tech Pathways MENA">
+      <img class="lead-img" src="mena tech.png" alt="Tech Pathways MENA">
       <p>
-        Selected for a regional program focused on technology, innovation, and professional development through workshops,
-        collaboration, and mentorship.
+        Selected for <b>Tech Pathways MENA</b> (Google × WomenTech Network), a regional program focused on emerging technologies,
+        leadership, and innovation. I participated in workshops covering <b>AI fundamentals</b>, <b>career readiness</b>,
+        and <b>startup thinking</b>, collaborating with participants across the MENA region.
       </p>
+      <ul>
+        <li>Completed sessions on leadership communication, problem framing, and product thinking.</li>
+        <li>Built a mini-project promoting <b>digital innovation and sustainability</b> with clear user impact.</li>
+        <li>Strengthened teamwork and networking through peer feedback and mentorship-style activities.</li>
+      </ul>
     </div>
   </section>
 
   <!-- SKILLS -->
   <section id="skills" class="section fade-in">
     <h2>Skills & Tech Stack</h2>
+
     <div class="grid two">
       <div class="card">
-        <h3>Core Technical</h3>
+        <h3>AI & Computer Vision</h3>
         <ul>
-          <li><b>AI / CV:</b> Emotion Recognition, DeepFace, OpenCV</li>
-          <li><b>IoT / Embedded:</b> Arduino, ESP32, sensors & actuators, LCD</li>
-          <li><b>Programming:</b> Python, C, HTML/CSS</li>
-          <li><b>Mobile / UI:</b> Flutter, UI/UX, Figma</li>
-          <li><b>Tools:</b> Git, GitHub, VS Code, Proteus</li>
+          <li>Emotion recognition pipelines (DeepFace + OpenCV), webcam capture, real-time inference</li>
+          <li>Preprocessing + robustness mindset (lighting/pose handling), confidence scoring, visualization (emotion curve)</li>
+          <li>Human-centered & privacy-aware design (on-device processing mindset)</li>
+        </ul>
+
+        <h3 style="margin-top:14px;">IoT & Embedded Systems</h3>
+        <ul>
+          <li>Arduino / ESP32 prototyping, sensor integration (PIR, DHT11, LM35, LDR, soil moisture)</li>
+          <li>Actuators: LEDs, buzzers, relays; LCD monitoring and real-time feedback</li>
+          <li>System design: sensor → logic → UI flow, testing and reliability mindset</li>
         </ul>
       </div>
+
       <div class="card">
-        <h3>Certifications & Recognition</h3>
+        <h3>Programming & Development</h3>
         <ul>
-          <li>IEEEXtreme 17 (2023): 1st at ISIMM, 8th nationally</li>
-          <li>OSTX Training Program (2023): entrepreneurship & startup development</li>
-          <li>Flutter Development Workshop (IEEE ISIMM)</li>
+          <li><b>Python</b> (CV/AI scripting), <b>C</b> (embedded), <b>HTML/CSS</b> (portfolio/UI)</li>
+          <li>Flutter basics for mobile UI and prototype building</li>
+          <li>Git/GitHub: repo structuring, commits, documentation and deployment</li>
         </ul>
+
+        <h3 style="margin-top:14px;">Tools & Design</h3>
+        <ul>
+          <li>Figma for UI/UX prototyping, Canva for visuals</li>
+          <li>VS Code, Proteus (embedded simulation)</li>
+        </ul>
+
         <h3 style="margin-top:14px;">Languages</h3>
         <ul>
           <li>Arabic: Native · French: Advanced · English: C2 (EF SET 75/100)</li>
